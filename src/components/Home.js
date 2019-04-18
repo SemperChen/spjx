@@ -32,6 +32,25 @@ class Home extends Component {
                 <View style={[styles.container,{paddingTop:WIDTH/3+20}]}>
 
                     <FlatList
+                        ListHeaderComponent={()=>{
+                            return(
+                                <View>
+                                    <View style={{flexDirection: 'row'}}>
+                                        <Image
+                                            resizeMode='contain'
+                                            style={{width: WIDTH/2,height:WIDTH/4}}
+                                            source={require('../../data/img/0.jpg')}/>
+                                        <Image
+                                            resizeMode='contain'
+                                            style={{width: WIDTH/2,height:WIDTH/4}}
+                                            source={require('../../data/img/1.jpg')}/>
+                                    </View>
+                                    <Text style={{marginTop:2,backgroundColor:'#fff',marginLeft: 15,fontSize:16,paddingVertical: 10,fontWeight: 'bold'}}>精选推荐</Text>
+                                </View>
+
+
+                            )
+                        }}
                         contentContainerStyle={{justifyContent: 'center',alignItems: 'center',}}
                         numColumns={2}
                         showsVerticalScrollIndicator={false}
@@ -71,38 +90,34 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 10,
-    },
-    banner: {
-        alignSelf: 'center',
-        margin: 10,
-        marginBottom: '10%'
+        margin: 0,
     },
     item: {
-        margin: 10,
+        margin: 5,
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: '#eee',
         alignSelf: 'center',
         borderBottomLeftRadius: 3,
         borderBottomRightRadius: 3,
         elevation: 2,
-        backgroundColor: '#ddd'
+        backgroundColor: '#ddd',
     },
     img: {
-        width: WIDTH/2-30,
-        height: WIDTH/2-30,
-        alignSelf: 'center'
+        width: WIDTH/2.2,
+        height: WIDTH/4,
+        alignSelf: 'center',
     },
     textContainer: {
-        padding: 10,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        // marginVertical: 5
     },
     title: {
         color: '#2c2c2c',
-        marginBottom: 3
+        marginVertical: 5
     },
     author: {
-        color: '#aeaeae'
+        color: '#aeaeae',
+        marginBottom: 5
     }
 });
 

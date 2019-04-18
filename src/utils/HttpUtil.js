@@ -24,7 +24,7 @@ export function fetchNetData() {
             {
                 title: 'things work out',
                 author: 'edgar a. guest',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img001.jpg',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDIIBJsbticBRR1xWbns2oFibLjdRgHUeicNeDO5hfJx9icXFvLaI9hIGsmhEQU2xyA124/356?tp=webp',
                 intro: 'because it rains when we wish it wouldn\'t,\n' +
                 ' because men do what they often should\'t...',
                 content: 'because it rains when we wish it wouldn\'t, \n' +
@@ -57,7 +57,7 @@ export function fetchNetData() {
             {
                 title: 'aspirations of youth',
                 author: 'james montgomery',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img002.jpg',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLB6gJiclkoorulN7WeQKTkBicW1Dp0h4559QgpRJ2VvQ8w0G8GWibFbnibmplUURWOiclGg/356?tp=webp',
                 intro: 'higher,higher,\n' +
                 'will we climb,\n' +
                 'up the mount of glory, \n' +
@@ -100,7 +100,7 @@ export function fetchNetData() {
             {
                 title: 'thou blessed dream',
                 author: 'swami vivekananda',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img003.jpg',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLB6gJiclkoorulN7WeQKTkBicW1Dp0h4559QgpRJ2VvQ8w0G8GWibFbnibmplUURWOiclGg/356?tp=webp',
                 intro: 'if things go ill or well-\n' +
                 'if joy rebounding spreads the face,\n' +
                 'or sea of sorrows swells-\n' +
@@ -128,7 +128,7 @@ export function fetchNetData() {
             {
                 title: 'To be a giant',
                 author: 'nameless',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img004.jpg',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLB6gJiclkoorulN7WeQKTkBicW1Dp0h4559QgpRJ2VvQ8w0G8GWibFbnibmplUURWOiclGg/356?tp=webp',
                 intro: 'To be a giant.\n' +
                 'This has forever been our passion, this desire to be a giant.\n' +
                 'Not to stand on one\'s shoulders or have one for a friend...',
@@ -164,7 +164,7 @@ export function fetchNetData() {
             {
                 title: 'Never give up',
                 author: 'nameless',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img005.jpg',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLB6gJiclkoorulN7WeQKTkBicW1Dp0h4559QgpRJ2VvQ8w0G8GWibFbnibmplUURWOiclGg/356?tp=webp',
                 intro: 'Never give up,\n' +
                 'Never lose hope.\n' +
                 'Always have faith,\n' +
@@ -187,9 +187,9 @@ export function fetchNetData() {
         ],
         zh: [
             {
-                title: '守得云开见月明',
+                title: 'PHP7进阶到架构实战',
                 author: 'edgar a. guest',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img001.jpg',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDicmEiaDlLpibia1udcZShSLzsOU187sxIU10NKktXxmRXJJoAiaiagSKuh58ImsOPPaw3g/356?tp=webp',
                 intro: '只因阴晴未必如我们所愿，\n' +
                 '只因人们未必都积德行善，\n' +
                 '只因作物欠收，计划流产——\n' +
@@ -222,9 +222,9 @@ export function fetchNetData() {
                 '但无论如何，一切事情总会好转。'
             },
             {
-                title: '青春的渴望',
+                title: '互联网高级java架构课程',
                 author: '詹姆斯·蒙哥马利',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img002.jpg',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLB6gJiclkoorulN7WeQKTkBicW1Dp0h4559QgpRJ2VvQ8w0G8GWibFbnibmplUURWOiclGg/356?tp=webp',
                 intro: '更高，更高，愿我们，\n' +
                 '攀登上光荣的阶梯，\n' +
                 '我们的名字就能永存\n' +
@@ -265,9 +265,9 @@ export function fetchNetData() {
                 '\n' +
                 '让我们创造人间的天堂。'
             },
-            {title: '你受祝福的梦',
+            {title: 'PHP7进阶到架构实战',
                 author: '斯瓦密.维渥堪纳达',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img003.jpg',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDIIBJsbticBRR1xWbns2oFibLjdRgHUeicNeDO5hfJx9icXFvLaI9hIGsmhEQU2xyA124/356?tp=webp',
                 intro: '无论事情变糟还是变好，\n' +
                 '不管欢乐重现脸颊或者，\n' +
                 '悲伤的海洋漫溢，\n' +
@@ -293,62 +293,112 @@ export function fetchNetData() {
                 '使轰隆的雷声变成悦耳的歌，\n' +
                 '使可怕的死亡变成甜蜜的解脱．'
             },
-            {title: '成为一个巨人',
-                author: '佚名',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img004.jpg',
-                intro: '成为一个巨人，\n' +
-                '这永远是我们最强烈的欲望，成为一个巨人。\n' +
-                '不是站在一个巨人的肩上，或是成为他的朋友...',
-                content:
-                '成为一个巨人，\n' +
-                '\n' +
-                '这永远是我们最强烈的欲望，成为一个巨人。\n' +
-                '\n' +
-                '不是站在一个巨人的肩上，或是成为他的朋友。\n' +
-                '\n' +
-                '那或许是靠运气。\n' +
-                '\n' +
-                '而要成为一个巨人是不一样的，\n' +
-                '\n' +
-                '好像巨人们永远都得跨越障碍。\n' +
-                '\n' +
-                '他们征服看似不可超越的高山。\n' +
-                '\n' +
-                '巨人们超越恐惧。\n' +
-                '\n' +
-                '击败痛苦。\n' +
-                '\n' +
-                '鞭策自己，鼓励他人。\n' +
-                '\n' +
-                '成为一个巨人，\n' +
-                '\n' +
-                '做巨人做的事。\n' +
-                '\n' +
-                '走巨人走的路。\n' +
-                '\n' +
-                '推动整个世界向前进。'
+            {
+                title: 'PHP7进阶到架构实战',
+                author: 'edgar a. guest',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDicmEiaDlLpibia1udcZShSLzsOU187sxIU10NKktXxmRXJJoAiaiagSKuh58ImsOPPaw3g/356?tp=webp',
+                intro: '只因阴晴未必如我们所愿，\n' +
+                    '只因人们未必都积德行善，\n' +
+                    '只因作物欠收，计划流产——\n' +
+                    '我们中的一些人就终日抱怨...',
+                content:'只因阴晴未必如我们所愿，\n' +
+                    '只因人们未必都积德行善，\n' +
+                    '只因作物欠收，计划流产——\n' +
+                    '我们中的一些人就终日抱怨。\n' +
+                    '\n' +
+                    '但即使经历忧虑与质疑，\n' +
+                    '事情似乎终会好转。\n' +
+                    '只因我们求胜之心落空，\n' +
+                    '只因我们受到少许痛楚，\n' +
+                    '只因我们必须工作而未能玩乐——\n' +
+                    '我们中的一些人就一生嗟叹。' +
+                    '黑夜之后必是黎明，\n' +
+                    '我们的困难大多能圆满解决。\n' +
+                    '只因我们无法永远微笑，\n' +
+                    '只因我们要在泥尘中跋涉，\n' +
+                    '我们中的一些人就哀诉生活多磨难。\n' +
+                    '但我们挺过来了，守得云开见月明，\n' +
+                    '一切事都终得顺利解决。\n' +
+                    '\n' +
+                    '所以，迎难而上，直面忧虑，\n' +
+                    '因为乌云终将散去，天空必定晴朗。\n' +
+                    '让雨洒下，它必须如此，不可逆转。\n' +
+                    '但请继续努力并始终希冀。\n' +
+                    '\n' +
+                    '尽管到处都有发牢骚的人，\n' +
+                    '但无论如何，一切事情总会好转。'
             },
-            {title: '永不放弃',
-                author: '佚名',
-                img:'https://raw.githubusercontent.com/SemperChen/Notification/master/img005.jpg',
-                intro: '永不放弃\n' +
-                '永不心灰意冷。\n' +
-                '永存信念，\n' +
-                '它会使你应付自如。\n' +
-                '难捱的时光终将过去，\n' +
-                '一如既往...',
-                content:'永不放弃,\n' +
-                '永不心灰意冷。\n' +
-                '永存信念， \n' +
-                '它会使你应付自如。 \n' +
-                '难捱的时光终将过去，\n' +
-                '一如既往。\n' +
-                '只要有耐心，\n' +
-                '梦想就会成真。\n' +
-                '露出微笑， \n' +
-                '你会走出痛苦。\n' +
-                '相信苦难定会过去， \n' +
-                '你将重获力量。'
+            {
+                title: '互联网高级java架构课程',
+                author: '詹姆斯·蒙哥马利',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLB6gJiclkoorulN7WeQKTkBicW1Dp0h4559QgpRJ2VvQ8w0G8GWibFbnibmplUURWOiclGg/356?tp=webp',
+                intro: '更高，更高，愿我们，\n' +
+                    '攀登上光荣的阶梯，\n' +
+                    '我们的名字就能永存\n' +
+                    '在我们祖国的史册；\n' +
+                    '幸福啊，当她一声召唤，\n' +
+                    '他就去拼搏，就去攻坚...',
+                content:'攀登上光荣的阶梯，\n' +
+                    '\n' +
+                    '我们的名字就能永存\n' +
+                    '\n' +
+                    '在我们祖国的史册；\n' +
+                    '\n' +
+                    '幸福啊，当她一声召唤，\n' +
+                    '\n' +
+                    '他就去拼搏，就去攻坚！\n' +
+                    '\n' +
+                    '更深，更深，让我们\n' +
+                    '\n' +
+                    '在知识矿藏中开发；\n' +
+                    '\n' +
+                    '自然财富和学术精品\n' +
+                    '\n' +
+                    '从学校研究院吸纳；\n' +
+                    '\n' +
+                    '愿我们在此发掘的珍宝，\n' +
+                    '\n' +
+                    '比王冠的星星更加光耀。\n' +
+                    '\n' +
+                    '向前，向前，愿我们\n' +
+                    '\n' +
+                    '推进这职责的常规；\n' +
+                    '\n' +
+                    '做好事是真正的福分，\n' +
+                    '\n' +
+                    '美德却是真正的美。\n' +
+                    '\n' +
+                    '头脑会超尘脱俗地成长：\n' +
+                    '\n' +
+                    '让我们创造人间的天堂。'
+            },
+            {title: 'PHP7进阶到架构实战',
+                author: '斯瓦密.维渥堪纳达',
+                img:'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDIIBJsbticBRR1xWbns2oFibLjdRgHUeicNeDO5hfJx9icXFvLaI9hIGsmhEQU2xyA124/356?tp=webp',
+                intro: '无论事情变糟还是变好，\n' +
+                    '不管欢乐重现脸颊或者，\n' +
+                    '悲伤的海洋漫溢，\n' +
+                    '那只是一场游戏，一场梦幻...',
+                content:
+                    '无论事情变糟还是变好，\n' +
+                    '不管欢乐重现脸颊或者，\n' +
+                    '悲伤的海洋漫溢，\n' +
+                    '那只是一场游戏，一场梦幻。\n' +
+                    '\n' +
+                    '我们都是戏中的角色，\n' +
+                    '人人都尽情地欢笑啼哭，\n' +
+                    '每个人都轮换穿着，\n' +
+                    '晴日或雨天的衣裳．\n' +
+                    '\n' +
+                    '你的梦，受祝福的梦，\n' +
+                    '到处掩盖着薄雾似的面纱，\n' +
+                    '将尖锐的线条变得柔和，\n' +
+                    '让粗糙的外表变得平滑\n' +
+                    '\n' +
+                    '只有你拥有魔力，\n' +
+                    '你的抚摩使荒漠绽开生命的花朵，\n' +
+                    '使轰隆的雷声变成悦耳的歌，\n' +
+                    '使可怕的死亡变成甜蜜的解脱．'
             },
 
         ]

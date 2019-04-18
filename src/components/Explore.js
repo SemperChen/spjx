@@ -1,102 +1,120 @@
-/**
- * @author Semper
- */
 import React, {Component} from 'react';
-import {ScrollView, StyleSheet, Text, TouchableOpacity, Alert} from 'react-native';
-import I18n from '../i18n/i18n';
-import {AdMobRewarded} from 'react-native-admob';
+import {Dimensions, FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {connect} from 'react-redux';
+import {requestContent} from '../actions/content';
+import ImageCarousel from "../commons/ImageCarousel";
+import {activeTintColor} from "../constants/constants";
+import {WIDTH} from "./Home";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Explore extends Component {
 
-    showRewarded() {
-        AdMobRewarded.showAd().catch(error => console.warn(error));
+
+    componentDidMount() {
+        this.props.dispatch(requestContent());
     }
 
-    showIsReadMorePoetry = () => {
-        Alert.alert(
-            I18n.t('reminder'),
-            I18n.t('reminderContent'),
-            [
-                {text: I18n.t('cancel'), style: 'cancel'},
-                {
-                    text: I18n.t('watch'), onPress: () => {
-                        this.showRewarded();
-                        this.props.navigation.navigate('WebRead', {
-                            name: I18n.t('deceived'),
-                            url: 'https://www.zybang.com/question/173eb8d56ed287b407c412ba6c960df9.html'
-                        })
-                    }
-                },
-            ],
-        )
+    _navDetail = (item) => {
+        this.props.navigation.navigate('Detail', {poetry: item})
     };
 
     render() {
         return (
-            <ScrollView contentContainerStyle={styles.container}>
-                <TouchableOpacity
-                    style={styles.btn}
-                    onPress={() => {
-                        this.props.navigation.navigate('WebRead', {
-                            name: I18n.t('heights'),
-                            url: 'https://wenku.baidu.com/view/8ac34c9ad4d8d15abe234ede.html'
-                        })
-                    }}
-                >
-                    <Text>{I18n.t('heights')}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.btn}
-                    onPress={() => {
-                        this.props.navigation.navigate('WebRead', {
-                            name: I18n.t('panther'),
-                            url: 'https://m.douban.com/note/491896073/'
-                        })
+            <View>
+                <StatusBar
+                    backgroundColor={activeTintColor}
+                    barStyle="light-content"
+                />
+                <View style={{
 
-                    }}
-                >
-                    <Text>{I18n.t('panther')}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.btn}
-                    onPress={() => {
-                        this.props.navigation.navigate('WebRead', {
-                            name: I18n.t('deceived'),
-                            url: 'https://www.douban.com/group/topic/14754640/'
-                        })
-                    }}
-                >
-                    <Text>{I18n.t('deceived')}</Text>
-                </TouchableOpacity>
+                }}>
 
-                <TouchableOpacity
-                    style={[styles.btn, {marginTop: 5}]}
-                    onPress={() => {
-                        // this.showIsReadMorePoetry()
-                        this.props.navigation.navigate('WebRead', {
-                            name: I18n.t('deceived'),
-                            url: 'https://www.zybang.com/question/173eb8d56ed287b407c412ba6c960df9.html'
-                        })
-                    }}
-                >
-                    <Text>{I18n.t('more')}</Text>
-                </TouchableOpacity>
-            </ScrollView>
+                    <FlatList
+                        contentContainerStyle={{justifyContent: 'center',alignItems: 'center',}}
+                        showsVerticalScrollIndicator={false}
+                        data={this.props.contentData
+                            ?
+                            globalLanguages === 'en' ? this.props.contentData.en : this.props.contentData.zh
+                            :
+                            null}
+                        renderItem={this._renderItem}
+                        keyExtractor={(item, index) => item.title}
+                    />
+                </View>
+            </View>
+        )
+    }
+
+    _renderItem = ({item}) => {
+        return (
+            <TouchableOpacity
+                style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding:20,
+                    borderBottomWidth: StyleSheet.hairlineWidth,
+                    borderColor: '#eee'
+
+                }}
+                onPress={() => {
+                    this._navDetail(item)
+                }}
+            >
+                <View style={{width:WIDTH/10*6}}>
+                    <Text style={{fontSize:16,margin:5}} numberOfLines={2}>清单|关于高效学习Python的建议</Text>
+                    <Text style={{color:'#ccc',fontSize:12,margin:5}} numberOfLines={3}>编程是一门艺术，是技能和经验的组合，本质上它就是拿你手上的工具去做东西。</Text>
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        margin:5,
+                    }}>
+                        <Text style={{color:'#ccc',fontSize:12}}>精品 | </Text>
+                        <Icon color={'#ccc'} name={'eye'} size={12}/>
+                        <Text style={{color:'#ccc',fontSize:12}}>  200</Text>
+                    </View>
+
+                </View>
+
+                <View style={{
+
+                    alignItems: 'center'}}>
+                    <Image source={{uri: 'https://jiuye-res.jikexueyuan.com/zhiye/showcase/attach-/20190226/646f3cea-46e9-4ceb-809b-3d3b47ea7a61.png'}}
+                           style={{width:WIDTH/10*3,height:WIDTH/10*2.8,borderRadius:8}}
+                           resizeMode='contain'
+                    />
+                </View>
+
+
+
+            </TouchableOpacity>
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        // margin: 20,
+        // margin: 10,
     },
-    btn: {
-        backgroundColor: '#fff',
-
-        padding: 20,
-        borderTopWidth: StyleSheet.hairlineWidth,
-        borderColor: '#eee'
+    item: {
+        // margin: 10,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderColor: '#eee',
+        borderBottomLeftRadius: 3,
+        borderBottomRightRadius: 3,
+        elevation: 2,
+        backgroundColor: '#ddd',
+        flexDirection: 'row'
+    },
+    img: {
+        width: WIDTH/4,
+        height: WIDTH/4,
     }
 });
 
-export default Explore
+function mapStateToProps(state) {
+    const {contentData, isFetching} = state.content;
+    return {contentData, isFetching}
+}
+
+export default connect(mapStateToProps)(Explore)

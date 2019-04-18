@@ -1,115 +1,47 @@
-import React, {Component} from 'react';
-import {Button, StatusBar, Text, View, StyleSheet, FlatList, Image, Dimensions, TouchableOpacity} from 'react-native';
-import I18n from '../i18n/i18n';
-import {connect} from 'react-redux';
-import {requestContent} from '../actions/content';
+import React, { Component } from 'react';
+import { Container, Content, Card, CardItem, Text, Icon, Right } from 'native-base';
+import {View} from 'react-native';
 
-const WIDTH = Dimensions.get('window').width;
-
-class My extends Component {
-
-    componentDidMount() {
-    }
-
-    _requestContent(){
-        this.props.dispatch(requestContent());
-    }
-
-    _navDetail = (item) => {
-        this.props.navigation.navigate('Detail',{poetry:item})
-    };
-
+import {inactiveTintColor} from "../constants/constants";
+import {WIDTH} from "./Home";
+export default class My extends Component {
     render() {
-        console.log('this.props.myData,globalMyPoems',this.props.myData,globalMyPoems)
         return (
-            <View>
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    contentContainerStyle={styles.list}
-                    data={this.props.myData
-                        ?
-                        this.props.myData
-                        :
-                        null}
-                    renderItem={this._renderItem}
-                    keyExtractor={(item, index) => item.title}
-                    ListHeaderComponent={()=>{
-                        return(
-                            <Button
-                                title={I18n.t('writePoem')}
-                                color="coral"
-                                onPress={()=>{
-                                    this.props.navigation.navigate('Add',{requestContent:this._requestContent})
-                                }}
-                            />
-                        )
-                    }}
-                />
+            <Container style={{backgroundColor:'#fafafa'}}>
+                <Content>
+                    <Card style={{width:WIDTH,height:WIDTH/2,justifyContent: 'center',alignItems: 'center'}}>
+                        <Card  style={{backgroundColor:'#eee',width:80,height:80,borderRadius:40,justifyContent: 'center',alignItems: 'center'}}>
+                            <Icon name="person" fontSize={10} style={{color:inactiveTintColor}}/>
+                        </Card>
+                        <Text>Semper</Text>
+                    </Card>
 
-            </View>
-        )
-    }
 
-    _renderItem = ({item}) => {
-        return (
-            <TouchableOpacity
-                style={styles.item}
-                onPress={()=>{
-                    this._navDetail(item)
-                }}
-            >
-                <Image source={{uri: item.img}}
-                       style={styles.img}
-                       resizeMode='cover'
-                />
-                <View style={styles.textContainer}><Text
-                    style={styles.title}>{item.title}</Text><Text
-                    style={styles.author}>{item.author}</Text></View>
-            </TouchableOpacity>
-        )
+                    <View style={{marginTop:10}}>
+                        <CardItem style={{justifyContent: 'space-between'}}>
+                            <Text>我的收藏</Text>
+                            <Right style={{}}>
+                                <Icon name="ios-arrow-forward" />
+                            </Right>
+                        </CardItem>
+                        <CardItem style={{justifyContent: 'space-between'}}>
+                            <Text>意见反馈</Text>
+                            <Right style={{}}>
+                                <Icon name="ios-arrow-forward" />
+                            </Right>
+                        </CardItem>
+                    </View>
+
+                    <View>
+                        <CardItem style={{justifyContent: 'space-between'}}>
+                            <Text>退出登录</Text>
+                            <Right style={{}}>
+                                <Icon name="ios-arrow-forward" />
+                            </Right>
+                        </CardItem>
+                    </View>
+                </Content>
+            </Container>
+        );
     }
 }
-
-const styles = StyleSheet.create({
-    list: {
-        margin: 15,
-    },
-    banner: {
-        alignSelf: 'center',
-        margin: 10,
-        marginBottom: '10%'
-    },
-    item: {
-        margin: 15,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderColor: '#eee',
-        alignSelf: 'center',
-        borderBottomLeftRadius: 3,
-        borderBottomRightRadius: 3,
-        elevation: 2,
-        backgroundColor: '#ddd'
-    },
-    img: {
-        width: WIDTH / 6 * 5,
-        height: WIDTH / 6 * 4,
-        alignSelf: 'center'
-    },
-    textContainer: {
-        padding: 10,
-        backgroundColor: '#fff'
-    },
-    title: {
-        color: '#2c2c2c',
-        marginBottom: 3
-    },
-    author: {
-        color: '#494949'
-    }
-});
-
-function mapStateToProps(state) {
-    const {myData, isFetching} = state.my;
-    return {myData, isFetching}
-}
-
-export default connect(mapStateToProps)(My)
