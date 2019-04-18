@@ -3,6 +3,8 @@ package com.wuai.reader;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.wonday.pdf.RCTPdfView;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import cn.jpush.reactnativejpush.JPushPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.corbt.keepawake.KCKeepAwakePackage;
@@ -41,6 +43,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RCTPdfView(),
+            new RNFetchBlobPackage(),
             new JPushPackage(!BuildConfig.DEBUG, !BuildConfig.DEBUG),
             new CodePush(BuildConfig.CODEPUSH_KEY, getApplicationContext(), BuildConfig.DEBUG),
             new KCKeepAwakePackage(),

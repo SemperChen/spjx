@@ -5,7 +5,7 @@ const showShort = (content, isAlert) => {
         text: content,
         buttonText: "确定",
         type: "warning"
-    })}
+    })
 }
 
 const showLong = (content, isAlert) => {
@@ -14,7 +14,7 @@ const showLong = (content, isAlert) => {
         buttonText: "确定",
         type: "warning",
         duration:2500
-    })}
+    })
 }
 
 export default {

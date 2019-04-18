@@ -11,6 +11,7 @@ import {WIDTH} from "./Home";
 import {activeTintColor, inactiveTintColor, inactiveTintColor2} from "../constants/constants";
 import {Button } from 'native-base';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import {connect} from "react-redux";
 
 class Detail extends Component {
 
@@ -21,6 +22,10 @@ class Detail extends Component {
             isFavorite:false
         };
     }
+
+    _navReader = (item) => {
+        this.props.navigation.navigate('Reader')
+    };
 
     componentDidMount() {
         /*global.fetch(`https://player.vimeo.com/video/${VIMEO_ID}/config`)
@@ -37,7 +42,6 @@ class Detail extends Component {
             <View style={{flex: 1}}>
                 <VideoPlayer
                     endWithThumbnail
-                    thumbnail={{uri: this.state.thumbnailUrl}}
                     video={{uri: 'https://media.w3.org/2010/05/sintel/trailer.mp4'}}
                     // videoWidth={this.state.video.width}
                     // videoHeight={this.state.video.height}
@@ -63,7 +67,7 @@ class Detail extends Component {
                                 containerStyle={{
                                     justifyContent: 'flex-start'
                                 }}
-                                starStyle={{margin: 2, color: inactiveTintColor}}
+                                starStyle={{margin: 3, color: inactiveTintColor}}
                                 starSize={10}
                                 disabled={false}
                                 maxStars={5}
@@ -131,6 +135,9 @@ class Detail extends Component {
                             justifyContent:'center',
                             width:'50%'
                         }}
+                        onPress={()=>{
+
+                        }}
                     >
                         {
                             this.state.isFavorite?
@@ -154,6 +161,9 @@ class Detail extends Component {
                             justifyContent:'center',
                             width:'50%',
                             padding:10
+                        }}
+                        onPress={()=>{
+                            this._navReader()
                         }}
                     >
                         <Text style={{color:'#fff'}}>阅读资料</Text>
@@ -194,4 +204,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Detail
+export default connect()(Detail)

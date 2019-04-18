@@ -1,89 +1,50 @@
 import React, {Component} from 'react';
-import {ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import I18n from '../i18n/i18n';
-import {AdMobInterstitial} from 'react-native-admob';
-global.globalFontColor = '#fff';
-global.globalFontSize = 22;
+import {StyleSheet, View} from 'react-native';
+import {WIDTH} from "./Home";
+import Pdf from "react-native-pdf";
+import ToastUtil from "../utils/ToastUtil";
+
 class Reader extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            fontSize: globalFontSize,
-            color: globalFontColor
-        }
-    }
-
-    static navigationOptions = ({navigation}) => {
-        let data = navigation.state.params.data;
-        return {
-            headerTitle: navigation.state.params.poetry.title,
-            // headerStyle: {elevation: 0},
-            headerTintColor: '#fff',
-            headerRight: (
-                <TouchableOpacity
-                    onPress={() => {
-                        navigation.navigate('Setting', {data: data})
-                    }}
-                >
-                    <Text style={{color: '#fff', padding: 10}}>{I18n.t('setting')}</Text>
-                </TouchableOpacity>
-            )
-        }
-    };
-
-    showInterstitial() {
-        AdMobInterstitial.showAd().catch(error => console.warn(error));
-    }
-
-    componentDidMount() {
-        this.showInterstitial()
-    }
-
-    componentWillMount() {
-        this._setParams();
-        this.poetry = this.props.navigation.state.params.poetry;
-    }
-
-    _setParams = () => {
-        this.props.navigation.setParams({
-            data: {
-                setColor: this.setColor,
-                setFontSize: this.setFontSize
-            }
-        });
-    };
-
-    setColor = (color) => {
-        this.setState({
-            color
-        });
-        this._setParams();
-        global.globalFontColor = color;
-    };
-
-    setFontSize = (fontSize) => {
-        this.setState({
-            fontSize
-        });
-        this._setParams();
-        global.globalFontSize = fontSize;
-    };
-
     render() {
+        // const source = {uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf',cache:true};
+        let source = require('../../data/javascript-promise-book.pdf');  // ios only
+
+        //const source = require('./test.pdf');  // ios only
+        //const source = {uri:'bundle-assets://test.pdf'};
+
+        //const source = {uri:'file:///sdcard/test.pdf'};
+        //const source = {uri:"data:application/pdf;base64,..."};
+
         return (
-            <ScrollView contentContainerStyle={{backgroundColor: this.state.color}}>
-                <Text style={[styles.content, {fontSize: this.state.fontSize}]}>{this.poetry.content}</Text>
-            </ScrollView>
+            <View style={styles.container}>
+                <Pdf
+                    source={source}
+                    onLoadComplete={(numberOfPages,filePath)=>{
+                        console.log(`number of pages: ${numberOfPages}`);
+                    }}
+                    onPageChanged={(page,numberOfPages)=>{
+                        console.log(`current page: ${page}`);
+                    }}
+                    onError={(error)=>{
+                        ToastUtil.showShort("加载失败")
+                    }}
+                    style={styles.pdf}/>
+            </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    content: {
-        padding: 40,
-        lineHeight: 40,
-        alignSelf: 'center'
+    container: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        marginTop: 25,
+    },
+    pdf: {
+        flex:1,
+        width:WIDTH
     }
 });
 

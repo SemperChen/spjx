@@ -159,6 +159,8 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-pdf')
+    compile project(':rn-fetch-blob')
     compile project(':jpush-react-native')
     implementation project(':jcore-react-native')
     implementation project(':jpush-react-native')
