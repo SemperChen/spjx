@@ -23,10 +23,6 @@ class My extends Component {
         console.log('this.props.myData,globalMyPoems',this.props.myData,globalMyPoems)
         return (
             <View>
-                <StatusBar
-                    backgroundColor="chocolate"
-                    barStyle="light-content"
-                />
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.list}
@@ -36,7 +32,7 @@ class My extends Component {
                         :
                         null}
                     renderItem={this._renderItem}
-                    keyExtractor={(item: object, index: number) => item.title}
+                    keyExtractor={(item, index) => item.title}
                     ListHeaderComponent={()=>{
                         return(
                             <Button
@@ -64,7 +60,7 @@ class My extends Component {
             >
                 <Image source={{uri: item.img}}
                        style={styles.img}
-                       resizeMode={Image.resizeMode.cover}
+                       resizeMode='cover'
                 />
                 <View style={styles.textContainer}><Text
                     style={styles.title}>{item.title}</Text><Text

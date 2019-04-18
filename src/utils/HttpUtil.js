@@ -359,3 +359,27 @@ export function fetchMyPoems(){
         globalMyPoems
     )
 }
+
+export function fetchJSON(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept-Charset': 'utf-8',
+                'User-Agent': 'Mozilla/5.0 (Linux; X11)',
+            }
+        })
+            .then((response) => {
+                return response.json()
+            })
+            .catch((error) => {
+                reject(error);
+            }).then((responseData) => {
+            if (!responseData) {
+                reject(new Error('fetchJSON:responseData is null'));
+                return;
+            }
+            resolve(responseData);
+        }).done();
+    })
+}

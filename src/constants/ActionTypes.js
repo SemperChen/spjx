@@ -3,3 +3,6 @@ export const RECEIVE_CONTENT = 'RECEIVE_CONTENT';
 
 export const REQUEST_MY = 'REQUEST_MY';
 export const RECEIVE_MY = 'RECEIVE_MY';
+
+export const REQUEST_SPREAD = 'REQUEST_SPREAD';
+export const RECEIVE_SPREAD = 'RECEIVE_SPREAD';

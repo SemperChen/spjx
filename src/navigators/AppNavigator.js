@@ -12,12 +12,44 @@ import Detail from '../components/Detail';
 import Me from '../components/My';
 import AddPoetry from '../components/AddPoetry';
 import Setting from '../components/Setting';
+import {activeTintColor, iconSize, inactiveTintColor, inactiveTintColor2} from "../constants/constants";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const TabContainer = createBottomTabNavigator(
     {
-        Home: {screen: Home,navigationOptions:{tabBarLabel:I18n.t('home')}},
-        Explore: {screen: Explore,navigationOptions:{tabBarLabel:I18n.t('explore')}},
-        Me: {screen: Me,navigationOptions:{tabBarLabel:I18n.t('my')}}
+        Home: {
+            screen: Home, navigationOptions: {
+                tabBarLabel: I18n.t('home'),
+                tabBarIcon: ({focused}) => (
+                    <MaterialIcons name="home" size={iconSize}
+                                   style={focused ?
+                                       {color: activeTintColor} :
+                                       {color: inactiveTintColor2}}/>
+                ),
+            }
+        },
+        Explore: {
+            screen: Explore, navigationOptions: {
+                tabBarLabel: I18n.t('explore'),
+                tabBarIcon: ({focused}) => (
+                    <MaterialIcons name="explore" size={iconSize}
+                                   style={focused ?
+                                       {color: activeTintColor} :
+                                       {color: inactiveTintColor2}}/>
+                ),
+            }
+        },
+        Me: {
+            screen: Me, navigationOptions: {
+                tabBarLabel: I18n.t('my'),
+                tabBarIcon: ({focused}) => (
+                    <MaterialIcons name="person" size={iconSize}
+                                   style={focused ?
+                                       {color: activeTintColor} :
+                                       {color: inactiveTintColor2}}/>
+                ),
+            }
+        }
     },
     {
         animationEnabled: false,
@@ -25,13 +57,13 @@ const TabContainer = createBottomTabNavigator(
         lazy: true,
         tabBarPosition: 'bottom',
         tabBarOptions: {
-            activeTintColor: 'chocolate',
-            inactiveTintColor: 'coral',
-            showIcon: false,
+            activeTintColor: activeTintColor,
+            inactiveTintColor: inactiveTintColor2,
+            showIcon: true,
             showLabel: true,
             labelStyle: {
                 marginTop: 0,
-                fontSize: 14,
+                fontSize: 10,
             },
             style: {
                 backgroundColor: '#fff',
@@ -56,19 +88,19 @@ const TabContainer = createBottomTabNavigator(
  */
 const AppNavigator = createStackNavigator({
     Splash: {screen: Splash},
-    Tab: {screen: TabContainer,navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
-    Reader:{screen: Reader},
-    WebRead:{screen:WebReadPage},
+    Tab: {screen: TabContainer, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
+    Reader: {screen: Reader},
+    WebRead: {screen: WebReadPage},
     Detail: {screen: Detail},
-    Add: {screen: AddPoetry,navigationOptions: {headerTitle: I18n.t('addPoetry'), headerTintColor: '#fff'}},
-    Setting: {screen: Setting,navigationOptions: {headerTitle: I18n.t('setting'), headerTintColor: '#fff'}},
+    Add: {screen: AddPoetry, navigationOptions: {headerTitle: I18n.t('addPoetry'), headerTintColor: '#fff'}},
+    Setting: {screen: Setting, navigationOptions: {headerTitle: I18n.t('setting'), headerTintColor: '#fff'}},
     // Example:{screen:GoogleAdmobExample,navigationOptions:{title:'GoogleAdmobExample'}}
 }, {
     initialRouteName: 'Splash',
     /* The header config from HomeScreen is now here */
     navigationOptions: {
         headerStyle: {
-            backgroundColor: 'coral',
+            backgroundColor: inactiveTintColor,
             elevation: 0
         },
         headerTintColor: '#fff',
@@ -119,8 +151,8 @@ const AppNavigator = createStackNavigator({
             timing: Animated.timing,
         },
         screenInterpolator: sceneProps => {
-            const { layout, position, scene } = sceneProps;
-            const { index } = scene;
+            const {layout, position, scene} = sceneProps;
+            const {index} = scene;
 
             const width = layout.initWidth;
             const translateX = position.interpolate({
@@ -133,7 +165,7 @@ const AppNavigator = createStackNavigator({
                 outputRange: [0, 1, 1],
             });
 
-            return { opacity, transform: [{ translateX }] };
+            return {opacity, transform: [{translateX}]};
         },
     }),
 });

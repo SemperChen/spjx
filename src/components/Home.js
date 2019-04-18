@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import {Dimensions, FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
 import {requestContent} from '../actions/content';
+import ImageCarousel from "../commons/ImageCarousel";
+import {activeTintColor} from "../constants/constants";
 
-const WIDTH = Dimensions.get('window').width;
+export const WIDTH = Dimensions.get('window').width;
 
 class Home extends Component {
+
 
     componentDidMount() {
         this.props.dispatch(requestContent());
@@ -17,23 +20,32 @@ class Home extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View>
                 <StatusBar
-                    backgroundColor="chocolate"
+                    backgroundColor={activeTintColor}
                     barStyle="light-content"
                 />
+                <View style={{position: 'absolute',top:0}}>
+                    <ImageCarousel/>
 
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    data={this.props.contentData
-                        ?
-                        globalLanguages === 'en' ? this.props.contentData.en : this.props.contentData.zh
-                        :
-                        null}
-                    renderItem={this._renderItem}
-                    keyExtractor={(item, index) => item.title}
-                />
+                </View>
+                <View style={[styles.container,{paddingTop:WIDTH/3+20}]}>
+
+                    <FlatList
+                        contentContainerStyle={{justifyContent: 'center',alignItems: 'center',}}
+                        numColumns={2}
+                        showsVerticalScrollIndicator={false}
+                        data={this.props.contentData
+                            ?
+                            globalLanguages === 'en' ? this.props.contentData.en : this.props.contentData.zh
+                            :
+                            null}
+                        renderItem={this._renderItem}
+                        keyExtractor={(item, index) => item.title}
+                    />
+                </View>
             </View>
+
         )
     }
 
@@ -59,7 +71,7 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 15,
+        margin: 10,
     },
     banner: {
         alignSelf: 'center',
@@ -67,7 +79,7 @@ const styles = StyleSheet.create({
         marginBottom: '10%'
     },
     item: {
-        margin: 15,
+        margin: 10,
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: '#eee',
         alignSelf: 'center',
@@ -77,8 +89,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#ddd'
     },
     img: {
-        width: WIDTH / 6 * 5,
-        height: WIDTH / 6 * 4,
+        width: WIDTH/2-30,
+        height: WIDTH/2-30,
         alignSelf: 'center'
     },
     textContainer: {
