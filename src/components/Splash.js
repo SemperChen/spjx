@@ -3,7 +3,7 @@ import {StatusBar, Text, View, Dimensions} from 'react-native';
 import {NavigationActions, StackActions} from 'react-navigation';
 import I18n from '../i18n/i18n';
 import {getLanguages} from 'react-native-i18n';
-import {AdMobInterstitial,AdMobRewarded} from 'react-native-admob';
+import {loadAppConfig} from "../utils/ConfigUtil";
 
 const HEIGHT = Dimensions.get('window').height;
 
@@ -18,57 +18,6 @@ class Splash extends Component {
     }
 
     componentDidMount() {
-        // AdMobRewarded.setTestDevices([AdMobRewarded.simulatorId]);
-        AdMobRewarded.setAdUnitID('ca-app-pub-3940256099942544/5224354917');
-        AdMobRewarded.addEventListener('rewarded',
-            (reward) => console.log('AdMobRewarded => rewarded', reward)
-        );
-        AdMobRewarded.addEventListener('adLoaded',
-            () => console.log('AdMobRewarded => adLoaded')
-        );
-        AdMobRewarded.addEventListener('adFailedToLoad',
-            (error) => console.warn(error)
-        );
-        AdMobRewarded.addEventListener('adOpened',
-            () => console.log('AdMobRewarded => adOpened')
-        );
-        AdMobRewarded.addEventListener('videoStarted',
-            () => console.log('AdMobRewarded => videoStarted')
-        );
-        AdMobRewarded.addEventListener('adClosed',
-            () => {
-                console.log('AdMobRewarded => adClosed');
-                AdMobRewarded.requestAd().catch(error => console.warn(error));
-            }
-        );
-        AdMobRewarded.addEventListener('adLeftApplication',
-            () => console.log('AdMobRewarded => adLeftApplication')
-        );
-
-        AdMobRewarded.requestAd().catch(error => console.warn(error));
-
-        // AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId]);
-        AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712');
-        AdMobInterstitial.addEventListener('adLoaded',
-            () => console.log('AdMobInterstitial adLoaded')
-        );
-        AdMobInterstitial.addEventListener('adFailedToLoad',
-            (error) => console.warn(error)
-        );
-        AdMobInterstitial.addEventListener('adOpened',
-            () => console.log('AdMobInterstitial => adOpened')
-        );
-        AdMobInterstitial.addEventListener('adClosed',
-            () => {
-                console.log('AdMobInterstitial => adClosed');
-                AdMobInterstitial.requestAd().catch(error => console.warn(error));
-            }
-        );
-        AdMobInterstitial.addEventListener('adLeftApplication',
-            () => console.log('AdMobInterstitial => adLeftApplication')
-        );
-
-        AdMobInterstitial.requestAd().catch(error => console.warn(error));
 
         getLanguages().then(languages => {
             if (languages[0] === 'zh-CN' || languages[0] === 'zh-Hans-US' || languages[0] === 'zh-Hans-CN') {
@@ -78,6 +27,12 @@ class Splash extends Component {
             }
         });
         this.timer = setTimeout(() => {
+            //加载配置
+            loadAppConfig().then((config)=>{
+                if(config||config.length>0){
+                    global.AppConfig = config
+                }
+            });
             this.navHome()
         }, 2000)
     }
@@ -92,7 +47,7 @@ class Splash extends Component {
     navHome = () => {
         const resetAction = StackActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({routeName: 'Tab'})],
+            actions: [NavigationActions.navigate({routeName: 'Login'})],
         });
         this.props.navigation.dispatch(resetAction);
     };

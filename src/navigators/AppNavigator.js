@@ -14,6 +14,7 @@ import AddPoetry from '../components/AddPoetry';
 import Setting from '../components/Setting';
 import {activeTintColor, iconSize, inactiveTintColor, inactiveTintColor2} from "../constants/constants";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import Login from "../components/Login";
 
 const TabContainer = createBottomTabNavigator(
     {
@@ -90,7 +91,7 @@ const AppNavigator = createStackNavigator({
     Splash: {screen: Splash},
     Tab: {screen: TabContainer, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
     Reader: {screen: Reader},
-    WebRead: {screen: WebReadPage},
+    Login: {screen: Login, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
     Detail: {screen: Detail},
     Add: {screen: AddPoetry, navigationOptions: {headerTitle: I18n.t('addPoetry'), headerTintColor: '#fff'}},
     Setting: {screen: Setting, navigationOptions: {headerTitle: I18n.t('setting'), headerTintColor: '#fff'}},

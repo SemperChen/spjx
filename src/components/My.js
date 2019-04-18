@@ -16,7 +16,6 @@ export default class My extends Component {
                         <Text>Semper</Text>
                     </Card>
 
-
                     <View style={{marginTop:10}}>
                         <CardItem style={{justifyContent: 'space-between'}}>
                             <Text>我的收藏</Text>

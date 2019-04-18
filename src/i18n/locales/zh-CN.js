@@ -1,7 +1,7 @@
 
 export default {
     home:'主页',
-    poetry:'诗歌',
+    poetry:'软件课堂',
     read:'阅读',
     explore:'发现',
     heights:'高度',

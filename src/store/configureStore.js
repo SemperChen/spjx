@@ -14,7 +14,7 @@ middlewares.push(sagaMiddleware);
 middlewares.push(reactNavigationReduxMiddleware);
 /* global __DEV__  */
 if (__DEV__) {
-    middlewares.push(logger);
+    // middlewares.push(logger);
 }else {
     global.console = {
         info: () => {},
