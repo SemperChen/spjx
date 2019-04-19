@@ -15,7 +15,7 @@ class Home extends Component {
     }
 
     _navDetail = (item) => {
-        this.props.navigation.navigate('Detail', {poetry: item})
+        this.props.navigation.navigate('Detail', {video: item})
     };
 
     render() {
@@ -60,7 +60,7 @@ class Home extends Component {
                             :
                             null}
                         renderItem={this._renderItem}
-                        keyExtractor={(item, index) => item.title}
+                        keyExtractor={(item, index) => item.title+index}
                     />
                 </View>
             </View>

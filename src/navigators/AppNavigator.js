@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 // import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
-import {Easing, Animated} from 'react-native';
+import {Easing, Animated,TouchableOpacity} from 'react-native';
 import Home from '../components/Home';
 import Splash from '../components/Splash';
 import Reader from '../components/Reader';
@@ -16,6 +16,7 @@ import {activeTintColor, iconSize, inactiveTintColor, inactiveTintColor2} from "
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Login from "../components/Login";
 import Feedback from "../components/Feedback";
+import Search from "../components/Search";
 
 const TabContainer = createBottomTabNavigator(
     {
@@ -91,9 +92,25 @@ const TabContainer = createBottomTabNavigator(
 const AppNavigator = createStackNavigator({
     Splash: {screen: Splash},
     Feedback:{screen: Feedback,navigationOptions: {headerTitle: '意见反馈', headerTintColor: '#fff'}},
-    Tab: {screen: TabContainer, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
+    // Tab: {screen: TabContainer, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
+    Tab: {screen: TabContainer, navigationOptions: ({navigation, screenProps}) => ({
+            headerRight: (
+                <TouchableOpacity
+                    style={{padding: 10}}
+                    onPress={() => {
+                        navigation.navigate('Search')
+                    }}>
+                    <MaterialIcons name="search" size={28} style={{color: '#fff'}}/>
+                </TouchableOpacity>
+            ),
+            headerTitle: I18n.t('poetry'),
+            headerTintColor: '#fff'
+        })},
+
     Reader: {screen: Reader},
     Login: {screen: Login, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
+    Search: {screen: Search, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
+
     Detail: {screen: Detail},
     Add: {screen: AddPoetry, navigationOptions: {headerTitle: I18n.t('addPoetry'), headerTintColor: '#fff'}},
     Setting: {screen: Setting, navigationOptions: {headerTitle: I18n.t('setting'), headerTintColor: '#fff'}},

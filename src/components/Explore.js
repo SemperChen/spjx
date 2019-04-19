@@ -10,12 +10,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 class Explore extends Component {
 
 
+
     componentDidMount() {
         this.props.dispatch(requestContent());
     }
 
     _navDetail = (item) => {
-        this.props.navigation.navigate('Detail', {poetry: item})
+        this.props.navigation.navigate('Detail', {video: item})
     };
 
     render() {
@@ -38,7 +39,7 @@ class Explore extends Component {
                             :
                             null}
                         renderItem={this._renderItem}
-                        keyExtractor={(item, index) => item.title}
+                        keyExtractor={(item, index) => item.title+index}
                     />
                 </View>
             </View>
@@ -62,8 +63,8 @@ class Explore extends Component {
                 }}
             >
                 <View style={{width:WIDTH/10*6}}>
-                    <Text style={{fontSize:16,margin:5}} numberOfLines={2}>清单|关于高效学习Python的建议</Text>
-                    <Text style={{color:'#ccc',fontSize:12,margin:5}} numberOfLines={3}>编程是一门艺术，是技能和经验的组合，本质上它就是拿你手上的工具去做东西。</Text>
+                    <Text style={{fontSize:16,margin:5}} numberOfLines={2}>{item.title}</Text>
+                    <Text style={{color:'#ccc',fontSize:12,margin:5}} numberOfLines={2}>{item.intro}</Text>
                     <View style={{
                         flexDirection: 'row',
                         alignItems: 'center',
@@ -71,7 +72,7 @@ class Explore extends Component {
                     }}>
                         <Text style={{color:'#ccc',fontSize:12}}>精品 | </Text>
                         <Icon color={'#ccc'} name={'eye'} size={12}/>
-                        <Text style={{color:'#ccc',fontSize:12}}>  200</Text>
+                        <Text style={{color:'#ccc',fontSize:12}}>  {item.viewersCount}</Text>
                     </View>
 
                 </View>
@@ -79,13 +80,11 @@ class Explore extends Component {
                 <View style={{
 
                     alignItems: 'center'}}>
-                    <Image source={{uri: 'https://jiuye-res.jikexueyuan.com/zhiye/showcase/attach-/20190226/646f3cea-46e9-4ceb-809b-3d3b47ea7a61.png'}}
-                           style={{width:WIDTH/10*3,height:WIDTH/10*2.8,borderRadius:8}}
-                           resizeMode='contain'
+                    <Image source={{uri: item.img}}
+                           style={{width:WIDTH/10*3,height:WIDTH/10*2.2,borderRadius:8}}
+                           resizeMode='stretch'
                     />
                 </View>
-
-
 
             </TouchableOpacity>
         )
