@@ -1,17 +1,14 @@
 import React from 'react';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 // import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
-import {Easing, Animated,TouchableOpacity} from 'react-native';
+import {Animated, Easing, TouchableOpacity} from 'react-native';
 import Home from '../components/Home';
 import Splash from '../components/Splash';
 import Reader from '../components/Reader';
 import Explore from '../components/Explore';
 import I18n from '../i18n/i18n';
-import WebReadPage from '../components/WebReadPage';
 import Detail from '../components/Detail';
 import Me from '../components/My';
-import AddPoetry from '../components/AddPoetry';
-import Setting from '../components/Setting';
 import {activeTintColor, iconSize, inactiveTintColor, inactiveTintColor2} from "../constants/constants";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Login from "../components/Login";
@@ -109,14 +106,14 @@ const AppNavigator = createStackNavigator({
         })},
 
     Reader: {screen: Reader},
-    Collect: {screen: Collect},
+    Collect: {screen: Collect,navigationOptions: {headerTitle: '我的收藏', headerTintColor: '#fff'}},
 
     Login: {screen: Login, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
     Search: {screen: Search, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
 
     Detail: {screen: Detail},
-    Add: {screen: AddPoetry, navigationOptions: {headerTitle: I18n.t('addPoetry'), headerTintColor: '#fff'}},
-    Setting: {screen: Setting, navigationOptions: {headerTitle: I18n.t('setting'), headerTintColor: '#fff'}},
+    // Add: {screen: AddPoetry, navigationOptions: {headerTitle: I18n.t('addPoetry'), headerTintColor: '#fff'}},
+    // Setting: {screen: Setting, navigationOptions: {headerTitle: I18n.t('setting'), headerTintColor: '#fff'}},
     // Example:{screen:GoogleAdmobExample,navigationOptions:{title:'GoogleAdmobExample'}}
 }, {
     initialRouteName: 'Splash',

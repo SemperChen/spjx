@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {Dimensions, FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
 import {requestContent} from '../actions/content';
-import ImageCarousel from "../commons/ImageCarousel";
-import {activeTintColor, inactiveTintColor2} from "../constants/constants";
+import {activeTintColor} from "../constants/constants";
 import {WIDTH} from "./Home";
-import {Icon, Item} from 'native-base';
+import {Icon} from 'native-base';
 
+const _remove = require('lodash/remove');
 class Collect extends Component {
 
     componentDidMount() {
@@ -17,6 +17,14 @@ class Collect extends Component {
         this.props.navigation.navigate('Detail', {video: item})
     };
 
+    _removeCollect = (id) => {
+        _remove(AppConfig.collection,(item)=>{
+            return item.id===id
+        });
+        this.forceUpdate()
+
+    }
+
     render() {
         return (
             <View>
@@ -24,19 +32,17 @@ class Collect extends Component {
                     backgroundColor={activeTintColor}
                     barStyle="light-content"
                 />
-                <FlatList
+                {AppConfig.collection.length>0?
+                    <FlatList
+                        contentContainerStyle={{alignSelf: 'center'}}
+                        numColumns={2}
+                        showsVerticalScrollIndicator={false}
+                        data={AppConfig.collection}
+                        renderItem={this._renderItem}
+                        keyExtractor={(item, index) => item.title + index}
+                    />:
+                    <Text style={{fontSize:20,margin:20}}>无收藏</Text>}
 
-                    contentContainerStyle={{justifyContent: 'center', alignItems: 'center',}}
-                    numColumns={2}
-                    showsVerticalScrollIndicator={false}
-                    data={this.props.contentData
-                        ?
-                        globalLanguages === 'en' ? this.props.contentData.en : this.props.contentData.zh
-                        :
-                        null}
-                    renderItem={this._renderItem}
-                    keyExtractor={(item, index) => item.title + index}
-                />
             </View>
 
         )
@@ -57,8 +63,13 @@ class Collect extends Component {
                 <View style={styles.textContainer}>
                     <Text style={styles.title}>{item.title}</Text>
                     <Text style={styles.author}>{item.author}</Text>
-                    <Icon  color={activeTintColor} style={{color:'#ff5c8d',position:'absolute',bottom:4,right:4}}  active name='heart' />
-
+                    <Icon
+                        onPress={()=>{
+                            this._removeCollect(item.id)
+                        }}
+                        color={activeTintColor}
+                        style={{color: '#ff5c8d', position: 'absolute', bottom: 4, right: 4}}
+                        active name='heart'/>
                 </View>
 
             </TouchableOpacity>

@@ -24,6 +24,7 @@ export function loadAppConfig() {
             key: CONFIG
         }).then(config => {
             // 如果找到数据，则在then方法中返回
+
             return config;
         }).catch(err => {
             // 如果没有找到数据且没有sync方法，

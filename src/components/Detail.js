@@ -4,6 +4,10 @@ import VideoPlayer from 'react-native-video-player';
 import StarRating from "react-native-star-rating";
 import {inactiveTintColor} from "../constants/constants";
 import {connect} from "react-redux";
+import {saveAppConfig} from "../utils/ConfigUtil";
+
+const _findIndex = require('lodash/findIndex');
+const _remove = require('lodash/remove');
 
 class Detail extends Component {
 
@@ -14,16 +18,51 @@ class Detail extends Component {
         };
     }
 
+    _initData = () => {
+
+        return{
+            isFavorite: false
+        }
+    }
+
     _navReader = () => {
         this.props.navigation.navigate('Reader')
     };
 
     componentWillMount(){
         const {video} = this.props.navigation.state.params;
-        this.video = video
+        this.video = video;
+        const index = _findIndex(AppConfig.collection, (item)=>{
+            return item.id === this.video.id
+        });
+        if(index!==-1){
+            this.setState({
+                isFavorite:true
+            })
+        }
     }
 
     componentDidMount() {
+    }
+
+    _collectToggle = () => {
+        this.setState((prevState)=>({
+            isFavorite:!prevState.isFavorite
+        }))
+        const index = _findIndex(AppConfig.collection, (item)=>{
+            return item.id === this.video.id
+        });
+        if(index!==-1){
+            _remove(AppConfig.collection,(item)=>{
+                return item.id===this.video.id
+            })
+        }else {
+            if(this.video){
+                AppConfig.collection.push(this.video);
+                saveAppConfig(AppConfig)
+            }
+        }
+
     }
 
     render() {
@@ -126,7 +165,7 @@ class Detail extends Component {
                                     width: '50%'
                                 }}
                                 onPress={() => {
-
+                                    this._collectToggle()
                                 }}
                             >
                                 {

@@ -30,13 +30,16 @@ class Splash extends Component {
 
             //加载配置
             loadAppConfig().then((config)=>{
-                if(config||config.length>0){
+
+                if(config.length!==0){
                     global.AppConfig = config;
                     if(AppConfig.isLogin){
                         this.navHome()
                     }else {
                         this.navLogin()
                     }
+                }else {
+                    this.navLogin()
                 }
             });
         }, 2000)

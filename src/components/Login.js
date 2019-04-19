@@ -29,7 +29,6 @@ class Login extends Component {
     };
 
     _register = () => {
-        console.log('AppConfig',AppConfig)
         let users = AppConfig.loginData.users;
         // console.log('users111',users)
         const index = _findIndex(users, (item)=>{
@@ -48,14 +47,12 @@ class Login extends Component {
     };
 
     _login = () => {
-        console.log('AppConfig',AppConfig)
-
         let users = AppConfig.loginData.users;
         const index = _findIndex(users, (item)=>{
             return item.username === this.username
         });
         if(index!==-1&&users[index].password===this.password){
-            AppConfig.loginData.user = users[index];
+            AppConfig.user = users[index];
             AppConfig.isLogin = true;
             saveAppConfig(AppConfig);
             this._navToHome()

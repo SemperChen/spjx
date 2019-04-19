@@ -9,7 +9,6 @@ export const WIDTH = Dimensions.get('window').width;
 
 class Home extends Component {
 
-
     componentDidMount() {
         this.props.dispatch(requestContent());
     }
@@ -36,14 +35,28 @@ class Home extends Component {
                             return(
                                 <View>
                                     <View style={{flexDirection: 'row'}}>
-                                        <Image
-                                            resizeMode='contain'
-                                            style={{width: WIDTH/2,height:WIDTH/4}}
-                                            source={require('../../data/img/0.jpg')}/>
-                                        <Image
-                                            resizeMode='contain'
-                                            style={{width: WIDTH/2,height:WIDTH/4}}
-                                            source={require('../../data/img/1.jpg')}/>
+                                        <TouchableOpacity
+                                            onPress={()=>{
+                                                this._navDetail(this.props.contentData.zh[1])
+                                            }}
+                                        >
+                                            <Image
+                                                resizeMode='contain'
+                                                style={{width: WIDTH/2,height:WIDTH/4}}
+                                                source={require('../../data/img/0.jpg')}/>
+                                        </TouchableOpacity>
+
+                                        <TouchableOpacity
+                                            onPress={()=>{
+                                                this._navDetail(this.props.contentData.zh[2])
+                                            }}
+                                        >
+                                            <Image
+                                                resizeMode='contain'
+                                                style={{width: WIDTH/2,height:WIDTH/4}}
+                                                source={require('../../data/img/1.jpg')}/>
+                                        </TouchableOpacity>
+
                                     </View>
                                     <Text style={{marginTop:2,backgroundColor:'#fff',marginLeft: 15,fontSize:16,paddingVertical: 10,fontWeight: 'bold'}}>精选推荐</Text>
                                 </View>
@@ -51,7 +64,7 @@ class Home extends Component {
 
                             )
                         }}
-                        contentContainerStyle={{justifyContent: 'center',alignItems: 'center',}}
+                        contentContainerStyle={{alignSelf: 'center'}}
                         numColumns={2}
                         showsVerticalScrollIndicator={false}
                         data={this.props.contentData

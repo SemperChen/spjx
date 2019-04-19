@@ -7,8 +7,8 @@ import ToastUtil from "../utils/ToastUtil";
 class Reader extends Component {
 
     render() {
-        // const source = {uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf',cache:true};
-        let source = require('../../data/javascript-promise-book.pdf');  // ios only
+        const source = {uri:'https://github.com/SemperChen/spjx/raw/master/data/javascript-promise-book.pdf',cache:true};
+        // let source = require('../../data/javascript-promise-book.pdf');  // ios only
 
         //const source = require('./test.pdf');  // ios only
         //const source = {uri:'bundle-assets://test.pdf'};
