@@ -20,6 +20,10 @@ export default class My extends Component {
         this.props.navigation.navigate('Feedback')
     };
 
+    _navToCollect = () =>{
+        this.props.navigation.navigate('Collect')
+    };
+
 
     render() {
         return (
@@ -32,7 +36,11 @@ export default class My extends Component {
                         <Text>{AppConfig.user.username}</Text>
                     </Card>
 
-                    <View style={{marginTop:10}}>
+                    <TouchableOpacity
+                        onPress={()=>{
+                            this._navToCollect()
+                        }}
+                        style={{marginTop:10}}>
                         <CardItem style={{justifyContent: 'space-between'}}>
                             <Text>我的收藏</Text>
                             <Right style={{}}>
@@ -40,7 +48,7 @@ export default class My extends Component {
                             </Right>
                         </CardItem>
 
-                    </View>
+                    </TouchableOpacity>
 
                     <TouchableOpacity
                         onPress={()=>{

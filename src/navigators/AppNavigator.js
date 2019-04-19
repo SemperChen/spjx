@@ -17,6 +17,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Login from "../components/Login";
 import Feedback from "../components/Feedback";
 import Search from "../components/Search";
+import Collect from "../components/Collect";
 
 const TabContainer = createBottomTabNavigator(
     {
@@ -108,6 +109,8 @@ const AppNavigator = createStackNavigator({
         })},
 
     Reader: {screen: Reader},
+    Collect: {screen: Collect},
+
     Login: {screen: Login, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
     Search: {screen: Search, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
 
