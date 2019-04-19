@@ -6,6 +6,7 @@ import {activeTintColor} from "../constants/constants";
 import {StatusBar} from "react-native";
 import ToastUtil from "../utils/ToastUtil";
 import {saveAppConfig} from "../utils/ConfigUtil";
+import {NavigationActions, StackActions} from "react-navigation";
 
 const _findIndex = require('lodash/findIndex');
 class Login extends Component {
@@ -15,8 +16,16 @@ class Login extends Component {
             isReadyLogin:true
         }
     }
+    // _navToHome = () => {
+    //     this.props.navigation.navigate('Home')
+    // };
+
     _navToHome = () => {
-        this.props.navigation.navigate('Home')
+        const resetAction = StackActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({routeName: 'Tab'})],
+        });
+        this.props.navigation.dispatch(resetAction);
     };
 
     _register = () => {
@@ -28,6 +37,8 @@ class Login extends Component {
         });
         if(index===-1){
             AppConfig.loginData.users.push({username:this.username,password:this.password});
+            AppConfig.user = {username:this.username,password:this.password}
+            AppConfig.isLogin = true;
             saveAppConfig(AppConfig);
             this._navToHome()
         }else {
@@ -45,6 +56,7 @@ class Login extends Component {
         });
         if(index!==-1&&users[index].password===this.password){
             AppConfig.loginData.user = users[index];
+            AppConfig.isLogin = true;
             saveAppConfig(AppConfig);
             this._navToHome()
         }else {

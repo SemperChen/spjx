@@ -67,7 +67,7 @@ class Detail extends Component {
                                 containerStyle={{
                                     justifyContent: 'flex-start'
                                 }}
-                                starStyle={{margin: 3, color: inactiveTintColor}}
+                                starStyle={{margin: 2, color: inactiveTintColor}}
                                 starSize={10}
                                 disabled={false}
                                 maxStars={5}
@@ -75,7 +75,7 @@ class Detail extends Component {
                                 // selectedStar={(rating) => this.onStarRatingPress(rating)}
                             />
 
-                            <Text style={{fontSize: 12, marginLeft: 5}}>4.4 540人学过</Text>
+                            <Text style={{fontSize: 12, marginLeft: 5}}>4.4分  540人学过</Text>
 
                         </View>
                         <View style={{flexDirection: 'row'}}>

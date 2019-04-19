@@ -13,8 +13,8 @@ class Splash extends Component {
         header: null,
     };
 
-    componentWillMount() {
-        StatusBar.setHidden(true)
+    componentWillMount(hidden, animation) {
+        StatusBar.setHidden(true, animation)
     }
 
     componentDidMount() {
@@ -27,27 +27,40 @@ class Splash extends Component {
             }
         });
         this.timer = setTimeout(() => {
+
             //加载配置
             loadAppConfig().then((config)=>{
                 if(config||config.length>0){
-                    global.AppConfig = config
+                    global.AppConfig = config;
+                    if(AppConfig.isLogin){
+                        this.navHome()
+                    }else {
+                        this.navLogin()
+                    }
                 }
             });
-            this.navHome()
         }, 2000)
     }
 
-    componentWillUnmount() {
+    componentWillUnmount(hidden, animation) {
         this.timer && clearTimeout(this.timer);
-        StatusBar.setHidden(false);
+        StatusBar.setHidden(false, animation);
         // AdMobRewarded.removeAllListeners();
         // AdMobInterstitial.removeAllListeners();
     }
 
-    navHome = () => {
+    navLogin = () => {
         const resetAction = StackActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({routeName: 'Login'})],
+        });
+        this.props.navigation.dispatch(resetAction);
+    };
+
+    navHome = () => {
+        const resetAction = StackActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({routeName: 'Tab'})],
         });
         this.props.navigation.dispatch(resetAction);
     };

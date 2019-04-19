@@ -15,6 +15,7 @@ import Setting from '../components/Setting';
 import {activeTintColor, iconSize, inactiveTintColor, inactiveTintColor2} from "../constants/constants";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Login from "../components/Login";
+import Feedback from "../components/Feedback";
 
 const TabContainer = createBottomTabNavigator(
     {
@@ -89,6 +90,7 @@ const TabContainer = createBottomTabNavigator(
  */
 const AppNavigator = createStackNavigator({
     Splash: {screen: Splash},
+    Feedback:{screen: Feedback,navigationOptions: {headerTitle: '意见反馈', headerTintColor: '#fff'}},
     Tab: {screen: TabContainer, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
     Reader: {screen: Reader},
     Login: {screen: Login, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
