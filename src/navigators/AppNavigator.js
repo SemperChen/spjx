@@ -6,10 +6,9 @@ import Home from '../components/Home';
 import Splash from '../components/Splash';
 import Reader from '../components/Reader';
 import Explore from '../components/Explore';
-import I18n from '../i18n/i18n';
 import Detail from '../components/Detail';
 import Me from '../components/My';
-import {activeTintColor, iconSize, inactiveTintColor, inactiveTintColor2} from "../constants/constants";
+import {activeTintColor, appName, iconSize, inactiveTintColor, inactiveTintColor2} from "../constants/constants";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Login from "../components/Login";
 import Feedback from "../components/Feedback";
@@ -23,7 +22,7 @@ const TabContainer = createBottomTabNavigator(
     {
         Home: {
             screen: Home, navigationOptions: {
-                tabBarLabel: I18n.t('home'),
+                tabBarLabel: '主页',
                 tabBarIcon: ({focused}) => (
                     <MaterialIcons name="home" size={iconSize}
                                    style={focused ?
@@ -34,7 +33,7 @@ const TabContainer = createBottomTabNavigator(
         },
         Explore: {
             screen: Explore, navigationOptions: {
-                tabBarLabel: I18n.t('explore'),
+                tabBarLabel: '发现',
                 tabBarIcon: ({focused}) => (
                     <MaterialIcons name="explore" size={iconSize}
                                    style={focused ?
@@ -45,7 +44,7 @@ const TabContainer = createBottomTabNavigator(
         },
         Me: {
             screen: Me, navigationOptions: {
-                tabBarLabel: I18n.t('my'),
+                tabBarLabel:'我的',
                 tabBarIcon: ({focused}) => (
                     <MaterialIcons name="person" size={iconSize}
                                    style={focused ?
@@ -93,7 +92,6 @@ const TabContainer = createBottomTabNavigator(
 const AppNavigator = createStackNavigator({
     Splash: {screen: Splash},
     Feedback:{screen: Feedback,navigationOptions: {headerTitle: '意见反馈', headerTintColor: '#fff'}},
-    // Tab: {screen: TabContainer, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
     Tab: {screen: TabContainer, navigationOptions: ({navigation, screenProps}) => ({
             headerRight: (
                 <TouchableOpacity
@@ -104,20 +102,17 @@ const AppNavigator = createStackNavigator({
                     <MaterialIcons name="search" size={28} style={{color: '#fff'}}/>
                 </TouchableOpacity>
             ),
-            headerTitle: I18n.t('poetry'),
+            headerTitle: appName,
             headerTintColor: '#fff'
         })},
 
     Reader: {screen: Reader},
     Collect: {screen: Collect,navigationOptions: {headerTitle: '我的收藏', headerTintColor: '#fff'}},
 
-    Login: {screen: Login, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
-    Search: {screen: Search, navigationOptions: {headerTitle: I18n.t('poetry'), headerTintColor: '#fff'}},
+    Login: {screen: Login, navigationOptions: {headerTitle: appName, headerTintColor: '#fff'}},
+    Search: {screen: Search, navigationOptions: {headerTitle: appName, headerTintColor: '#fff'}},
 
     Detail: {screen: Detail},
-    // Add: {screen: AddPoetry, navigationOptions: {headerTitle: I18n.t('addPoetry'), headerTintColor: '#fff'}},
-    // Setting: {screen: Setting, navigationOptions: {headerTitle: I18n.t('setting'), headerTintColor: '#fff'}},
-    // Example:{screen:GoogleAdmobExample,navigationOptions:{title:'GoogleAdmobExample'}}
 }, {
     initialRouteName: 'Splash',
     /* The header config from HomeScreen is now here */

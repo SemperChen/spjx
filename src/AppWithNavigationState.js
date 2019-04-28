@@ -7,7 +7,6 @@ import {NavigationActions} from 'react-navigation';
 import {navigationPropConstructor} from './utils/redux';
 import {initializeListeners} from 'react-navigation-redux-helpers/src/middleware';
 import RNExitApp from 'react-native-exit-app';
-import I18n from './i18n/i18n';
 
 class AppWithNavigationState extends Component {
 
@@ -40,7 +39,7 @@ class AppWithNavigationState extends Component {
                     return false;
                 }
                 this.lastBackPressed = Date.now();
-                ToastAndroid.show(I18n.t('exitAppMsc'), ToastAndroid.SHORT);
+                ToastAndroid.show('再按一次退出应用', ToastAndroid.SHORT);
                 return true;
             }
             this.props.dispatch(NavigationActions.back());

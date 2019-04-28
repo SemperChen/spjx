@@ -74,7 +74,7 @@ class Home extends Component {
                         showsVerticalScrollIndicator={false}
                         data={this.props.contentData
                             ?
-                            globalLanguages === 'en' ? this.props.contentData.en : this.props.contentData.zh
+                            this.props.contentData.zh
                             :
                             null}
                         renderItem={this._renderItem}

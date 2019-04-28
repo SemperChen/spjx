@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
-import {Dimensions, FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
 import {requestContent} from '../actions/content';
-import ImageCarousel from "../commons/ImageCarousel";
 import {activeTintColor} from "../constants/constants";
 import {WIDTH} from "./Home";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Explore extends Component {
-
-
 
     componentDidMount() {
         this.props.dispatch(requestContent());
@@ -40,8 +37,7 @@ class Explore extends Component {
                         showsVerticalScrollIndicator={false}
                         data={this.props.contentData
                             ?
-                            globalLanguages === 'en' ? this.props.contentData.en : this.props.contentData.zh
-                            :
+                            this.props.contentData.zh:
                             null}
                         renderItem={this._renderItem}
                         keyExtractor={(item, index) => item.title+index}

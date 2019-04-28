@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {StatusBar, Text, View, Dimensions} from 'react-native';
 import {NavigationActions, StackActions} from 'react-navigation';
-import I18n from '../i18n/i18n';
-import {getLanguages} from 'react-native-i18n';
 import {loadAppConfig} from "../utils/ConfigUtil";
+import {appName} from "../constants/constants";
 
 const HEIGHT = Dimensions.get('window').height;
 
@@ -18,14 +17,6 @@ class Splash extends Component {
     }
 
     componentDidMount() {
-
-        getLanguages().then(languages => {
-            if (languages[0] === 'zh-CN' || languages[0] === 'zh-Hans-US' || languages[0] === 'zh-Hans-CN') {
-                global.globalLanguages = 'zh'
-            } else {
-                global.globalLanguages = 'en'
-            }
-        });
         this.timer = setTimeout(() => {
 
             //加载配置
@@ -76,7 +67,7 @@ class Splash extends Component {
                     fontSize: 28,
                     marginTop: HEIGHT / 3,
                     backgroundColor: 'transparent'
-                }}>{I18n.t('poetry')}</Text>
+                }}>{appName}</Text>
             </View>
         )
     }
