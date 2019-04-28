@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Dimensions, FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
 import {requestContent} from '../actions/content';
 import {activeTintColor} from "../constants/constants";
@@ -13,10 +13,20 @@ class Collect extends Component {
         this.props.dispatch(requestContent());
     }
 
+    /**
+     * 导航到详请观看视频信息页面
+     * @param item 传入video视频信息
+     * @private
+     */
     _navDetail = (item) => {
         this.props.navigation.navigate('Detail', {video: item})
     };
 
+    /**
+     * 通过id移除收藏视频
+     * @param id
+     * @private
+     */
     _removeCollect = (id) => {
         _remove(AppConfig.collection,(item)=>{
             return item.id===id

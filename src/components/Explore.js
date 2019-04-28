@@ -15,6 +15,11 @@ class Explore extends Component {
         this.props.dispatch(requestContent());
     }
 
+    /**
+     * 导航到详请观看视频信息页面
+     * @param item 传入video视频信息
+     * @private
+     */
     _navDetail = (item) => {
         this.props.navigation.navigate('Detail', {video: item})
     };

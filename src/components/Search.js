@@ -14,6 +14,7 @@ class Search extends Component {
         this.searchName = ''
     }
 
+    //发起搜索视频请求
     _searchVideo = () => {
         this.props.dispatch(requestContent());
         // console.log('this.searchName',this.searchName)

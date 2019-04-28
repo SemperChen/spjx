@@ -18,13 +18,7 @@ class Detail extends Component {
         };
     }
 
-    _initData = () => {
-
-        return{
-            isFavorite: false
-        }
-    }
-
+    //导航到PDF阅读器
     _navReader = () => {
         this.props.navigation.navigate('Reader')
     };
@@ -45,6 +39,7 @@ class Detail extends Component {
     componentDidMount() {
     }
 
+    //收藏和移除收藏视频开关，点一次搜藏再点一次取消收藏
     _collectToggle = () => {
         this.setState((prevState)=>({
             isFavorite:!prevState.isFavorite

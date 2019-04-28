@@ -16,6 +16,9 @@ import Feedback from "../components/Feedback";
 import Search from "../components/Search";
 import Collect from "../components/Collect";
 
+/**
+ * 首页Tab
+ */
 const TabContainer = createBottomTabNavigator(
     {
         Home: {

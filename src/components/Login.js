@@ -19,6 +19,12 @@ class Login extends Component {
     // _navToHome = () => {
     //     this.props.navigation.navigate('Home')
     // };
+    /**
+     * 导航到主页
+     *
+     * 导航到详请观看视频信息页面
+     * @private
+     */
 
     _navToHome = () => {
         const resetAction = StackActions.reset({
@@ -28,6 +34,10 @@ class Login extends Component {
         this.props.navigation.dispatch(resetAction);
     };
 
+    /**
+     * 注册
+     * @private
+     */
     _register = () => {
         let users = AppConfig.loginData.users;
         // console.log('users111',users)
@@ -46,6 +56,10 @@ class Login extends Component {
 
     };
 
+    /**
+     * 登录
+     * @private
+     */
     _login = () => {
         let users = AppConfig.loginData.users;
         const index = _findIndex(users, (item)=>{

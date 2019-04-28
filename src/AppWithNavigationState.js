@@ -17,16 +17,20 @@ class AppWithNavigationState extends Component {
 
     componentWillMount() {
         if (Platform.OS === 'android') {
-            BackHandler.addEventListener('hardwareBackPress', this.onBackAndroid);
+            BackHandler.addEventListener('hardwareBackPress', this.onBackAndroid);//添加安卓返回键监听
         }
     }
 
     componentWillUnmount() {
         if (Platform.OS === 'android') {
-            BackHandler.removeEventListener('hardwareBackPress', this.onBackAndroid);
+            BackHandler.removeEventListener('hardwareBackPress', this.onBackAndroid);//移除安卓返回键监听
         }
     }
 
+    /**
+     * //点击安卓返回键执行以下方法，点击一次2000毫秒内再点一次退出应用
+     * @returns {boolean}
+     */
     onBackAndroid = () => {
         try{
             if (this.index===0) {

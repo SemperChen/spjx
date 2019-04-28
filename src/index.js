@@ -9,7 +9,8 @@ store.runSaga(rootSaga);
 import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 global.globalMyPoems=[];
-import './commons/AppConfig'
+
+import './commons/AppConfig';//全局变量配置
 export default class Root extends Component {
 
     render() {

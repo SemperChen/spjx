@@ -8,6 +8,10 @@ import {NavigationActions, StackActions} from "react-navigation";
 import {saveAppConfig} from "../utils/ConfigUtil";
 export default class My extends Component {
 
+    /**
+     * 重制路由，并导航到登录界面
+     * @private
+     */
     _retNavLogin = () => {
         const resetAction = StackActions.reset({
             index: 0,
@@ -16,10 +20,17 @@ export default class My extends Component {
         this.props.navigation.dispatch(resetAction);
     };
 
+    /**
+     * 导航到意见反馈界面
+     */
     navToFeedback = () =>{
         this.props.navigation.navigate('Feedback')
     };
 
+    /**
+     * 导航到收藏界面
+     * @private
+     */
     _navToCollect = () =>{
         this.props.navigation.navigate('Collect')
     };
