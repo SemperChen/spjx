@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {requestContent} from "../actions/content";
 import {FlatList, Image, StatusBar, StyleSheet, TouchableOpacity, View} from "react-native";
 import {WIDTH} from "./Home";
+import {videosUrl} from "../constants/api";
 
 class Search extends Component {
 
@@ -16,13 +17,13 @@ class Search extends Component {
 
     //发起搜索视频请求
     _searchVideo = () => {
-        this.props.dispatch(requestContent());
+        this.props.dispatch(requestContent(videosUrl));
         // console.log('this.searchName',this.searchName)
     }
 
     componentDidMount() {
         if(this.props.contentData){
-            this.props.dispatch(requestContent());
+            this.props.dispatch(requestContent(videosUrl));
         }
     }
 
@@ -33,7 +34,7 @@ class Search extends Component {
     render() {
         if(this.props.contentData){
             this.videos = [];
-            let videos = this.props.contentData.zh;
+            let videos = this.props.contentData;
             for(let i=0;i<videos.length;i++){
                 let video = videos[i];
                 let index =  -1;

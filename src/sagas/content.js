@@ -1,15 +1,15 @@
 import {call, put} from "redux-saga/effects";
 import {receiveContent} from '../actions/content';
-import {fetchNetData} from '../utils/HttpUtil';
+import {fetchJSONByGET} from '../utils/HttpUtil';
 
 export function* fetchContent(params) {
     try {
         const {contentUrl} = params;
-        let contentData = yield call(fetchNetData, contentUrl);
+        let contentData = yield call(fetchJSONByGET, contentUrl);
         yield put(receiveContent(contentData))
 
     } catch (e) {
-        console.error('fetchContent:' + e.message)
+        console.warn('fetchContent:' + e.message)
     }
 
 }

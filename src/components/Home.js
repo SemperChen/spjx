@@ -4,13 +4,14 @@ import {connect} from 'react-redux';
 import {requestContent} from '../actions/content';
 import ImageCarousel from "../commons/ImageCarousel";
 import {activeTintColor} from "../constants/constants";
+import {videosUrl} from "../constants/api";
 
 export const WIDTH = Dimensions.get('window').width;
 
 class Home extends Component {
 
     componentDidMount() {
-        this.props.dispatch(requestContent());
+        this.props.dispatch(requestContent(videosUrl));
     }
 
     /**
@@ -42,7 +43,7 @@ class Home extends Component {
                                     <View style={{flexDirection: 'row'}}>
                                         <TouchableOpacity
                                             onPress={()=>{
-                                                this._navDetail(this.props.contentData.zh[1])
+                                                // this._navDetail(this.props.contentData.zh[1])
                                             }}
                                         >
                                             <Image
@@ -53,7 +54,7 @@ class Home extends Component {
 
                                         <TouchableOpacity
                                             onPress={()=>{
-                                                this._navDetail(this.props.contentData.zh[2])
+                                                // this._navDetail(this.props.contentData.zh[2])
                                             }}
                                         >
                                             <Image
@@ -72,11 +73,7 @@ class Home extends Component {
                         contentContainerStyle={{alignSelf: 'center'}}
                         numColumns={2}
                         showsVerticalScrollIndicator={false}
-                        data={this.props.contentData
-                            ?
-                            this.props.contentData.zh
-                            :
-                            null}
+                        data={this.props.contentData}
                         renderItem={this._renderItem}
                         keyExtractor={(item, index) => item.title+index}
                     />

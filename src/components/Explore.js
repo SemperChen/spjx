@@ -35,10 +35,7 @@ class Explore extends Component {
                     <FlatList
                         contentContainerStyle={{justifyContent: 'center',alignItems: 'center',}}
                         showsVerticalScrollIndicator={false}
-                        data={this.props.contentData
-                            ?
-                            this.props.contentData.zh:
-                            null}
+                        data={this.props.contentData}
                         renderItem={this._renderItem}
                         keyExtractor={(item, index) => item.title+index}
                     />

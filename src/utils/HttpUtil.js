@@ -18,6 +18,7 @@
         }).done();
     })
 }*/
+
 export function fetchNetData() {
     return {
         en: [
@@ -130,7 +131,7 @@ export function fetchJSON(url,body) {
                     reject(error);
                 }).then((responseData) => {
                 if (!responseData) {
-                    reject(new Error('fetchBookmark:responseData is null'));
+                    reject(new Error('fetchJSON:responseData is null'));
                     return;
                 }
                 this.timer && clearTimeout(this.timer)
@@ -141,15 +142,14 @@ export function fetchJSON(url,body) {
     })
 }
 
-export function fetchJSONByGET(url,body) {
+export function fetchJSONByGET(url) {
     return new Promise((resolve, reject) => {
         fetch(url, {
-            method: "GET",
             headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body)
+                'Content-Type': 'application/json',
+                'Accept-Charset': 'utf-8',
+                'User-Agent': 'Mozilla/5.0 (Linux; X11)',
+            }
         })
             .then((response) => {
                 return response.json()
@@ -158,7 +158,7 @@ export function fetchJSONByGET(url,body) {
                 reject(error);
             }).then((responseData) => {
             if (!responseData) {
-                reject(new Error('fetchBookmark:responseData is null'));
+                reject(new Error('fetchJSONByGET:responseData is null'));
                 return;
             }
             resolve(responseData);
