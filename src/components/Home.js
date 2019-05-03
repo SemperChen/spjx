@@ -34,10 +34,22 @@ class Home extends Component {
         this.props.navigation.navigate('Detail', {video: item})
     };
 
+    /**
+     * 导航到分类
+     * @param category
+     * @private
+     */
     _navToCategory = (category) => {
         this.props.navigation.navigate('Category', {category: category})
     };
 
+    /**
+     * 轮播item
+     * @param item
+     * @param index
+     * @returns {*}
+     * @private
+     */
     _renderItemCarousel = ({item,index}) => {
         return (
             <TouchableHighlight
@@ -152,6 +164,12 @@ class Home extends Component {
         )
     }
 
+    /**
+     * 精品推荐列表item
+     * @param item
+     * @returns {*}
+     * @private
+     */
     _renderItem = ({item}) => {
         return (
             <TouchableOpacity

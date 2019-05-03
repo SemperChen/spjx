@@ -22,9 +22,9 @@ class Category extends Component {
     }
 
     componentDidMount() {
-        const params = this.props.navigation.state.params;
+        const params = this.props.navigation.state.params;//接收导航参数
         const {category} = params;
-        console.log('category',category)
+        //如果参数存在，发起搜索请求
         if(category){
             this.searchName = category;
             this._searchVideo()
@@ -37,7 +37,7 @@ class Category extends Component {
     }
 
     render() {
-        console.log('this.props.contentData',this.props.contentData)
+        //如果请求contentData成功，根据分类名category(React React Native JAVA PHP其一)，进行过滤
         if(this.props.contentData){
             this.videos = [];
             let videos = this.props.contentData;
@@ -75,6 +75,11 @@ class Category extends Component {
         );
     }
 
+    /**
+     * 导航到详细页面，并将{video: item}传入
+     * @param item
+     * @private
+     */
     _navDetail = (item) => {
         this.props.navigation.navigate('Detail', {video: item})
     };
