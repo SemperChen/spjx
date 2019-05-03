@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 class Explore extends Component {
 
     componentDidMount() {
-        this.props.dispatch(requestContent());
+        // this.props.dispatch(requestContent());
     }
 
     /**

@@ -1,12 +1,6 @@
 export const REQUEST_CONTENT = 'REQUEST_CONTENT';
 export const RECEIVE_CONTENT = 'RECEIVE_CONTENT';
 
-export const REQUEST_MY = 'REQUEST_MY';
-export const RECEIVE_MY = 'RECEIVE_MY';
-
-export const REQUEST_SPREAD = 'REQUEST_SPREAD';
-export const RECEIVE_SPREAD = 'RECEIVE_SPREAD';
-
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
 export const CLEAR_LOGIN = 'CLEAR_LOGIN';

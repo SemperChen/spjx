@@ -1,10 +1,21 @@
 import React, {Component} from 'react';
-import {Dimensions, FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+    Dimensions,
+    FlatList,
+    Image,
+    StatusBar,
+    StyleSheet,
+    Text,
+    TouchableHighlight,
+    TouchableOpacity,
+    View
+} from 'react-native';
 import {connect} from 'react-redux';
 import {requestContent} from '../actions/content';
-import ImageCarousel from "../commons/ImageCarousel";
 import {activeTintColor} from "../constants/constants";
 import {videosUrl} from "../constants/api";
+import Carousel from "react-native-snap-carousel";
+import {fetchSpreadData} from "../utils/HttpUtil";
 
 export const WIDTH = Dimensions.get('window').width;
 
@@ -27,6 +38,21 @@ class Home extends Component {
         this.props.navigation.navigate('Category', {category: category})
     };
 
+    _renderItemCarousel = ({item,index}) => {
+        return (
+            <TouchableHighlight
+                onPress={() => {
+                    this._navDetail(item)
+                }}
+                style={{width: WIDTH, height: WIDTH / 3}}
+                underlayColor='#fff'
+            >
+                <Image resizeMode='cover' source={item.img}
+                       style={{width: WIDTH, height: WIDTH / 3}}/>
+            </TouchableHighlight>
+        )
+    };
+
     render() {
         return (
             <View>
@@ -34,17 +60,23 @@ class Home extends Component {
                     backgroundColor={activeTintColor}
                     barStyle="light-content"
                 />
-                <View style={{position: 'absolute',top:0,zIndex: 1000}}>
-                    <ImageCarousel/>
-
-                </View>
                 <View style={[styles.container]}>
-
+                    <Carousel
+                        loop={true}
+                        autoplay={true}
+                        ref={(c) => { this._carousel = c; }}
+                        data={fetchSpreadData()}
+                        renderItem={this._renderItemCarousel}
+                        sliderWidth={WIDTH}
+                        itemWidth={WIDTH}
+                    />
                     <FlatList
                         ListHeaderComponent={()=>{
                             return(
                                 <View>
-                                    <View style={{flexDirection: 'row',justifyContent: 'space-around',paddingTop:WIDTH/3+30,alignItems: 'center'}}>
+
+                                    <View style={{flexDirection: 'row',justifyContent: 'space-around',alignItems: 'center'}}>
+
                                         <TouchableOpacity
                                             onPress={()=>{
                                                 this._navToCategory('React')
@@ -107,7 +139,7 @@ class Home extends Component {
 
                             )
                         }}
-                        contentContainerStyle={{alignSelf: 'center'}}
+                        contentContainerStyle={{alignSelf: 'center',paddingBottom: WIDTH / 3 * 2}}
                         numColumns={2}
                         showsVerticalScrollIndicator={false}
                         data={this.props.contentData}
