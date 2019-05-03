@@ -14,6 +14,7 @@ import Login from "../components/Login";
 import Feedback from "../components/Feedback";
 import Search from "../components/Search";
 import Collect from "../components/Collect";
+import Category from "../components/Category";
 
 /**
  * 首页Tab
@@ -111,6 +112,7 @@ const AppNavigator = createStackNavigator({
 
     Login: {screen: Login, navigationOptions: {headerTitle: appName, headerTintColor: '#fff'}},
     Search: {screen: Search, navigationOptions: {headerTitle: appName, headerTintColor: '#fff'}},
+    Category: {screen: Category, navigationOptions: {headerTitle: appName, headerTintColor: '#fff'}},
 
     Detail: {screen: Detail},
 }, {

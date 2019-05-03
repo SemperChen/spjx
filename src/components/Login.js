@@ -8,6 +8,7 @@ import ToastUtil from "../utils/ToastUtil";
 import {NavigationActions, StackActions} from "react-navigation";
 import {clearLogin, requestLogin} from "../actions/login";
 import {loginUrl, registerUrl} from "../constants/api";
+import {saveAppConfig} from "../utils/ConfigUtil";
 
 const _findIndex = require('lodash/findIndex');
 
@@ -72,6 +73,7 @@ class Login extends Component {
                 if(this.props.loginData.isLogin){
                     AppConfig.loginData.isLogin = true;
                     AppConfig.loginData.user = this.props.loginData.user;
+                    saveAppConfig(AppConfig)
                     this._navToHome()
                     // console.log('this.props.loginData',this.props.loginData)
                 }else {

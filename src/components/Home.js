@@ -23,6 +23,10 @@ class Home extends Component {
         this.props.navigation.navigate('Detail', {video: item})
     };
 
+    _navToCategory = (category) => {
+        this.props.navigation.navigate('Category', {category: category})
+    };
+
     render() {
         return (
             <View>
@@ -30,37 +34,70 @@ class Home extends Component {
                     backgroundColor={activeTintColor}
                     barStyle="light-content"
                 />
-                <View style={{position: 'absolute',top:0}}>
+                <View style={{position: 'absolute',top:0,zIndex: 1000}}>
                     <ImageCarousel/>
 
                 </View>
-                <View style={[styles.container,{paddingTop:WIDTH/3+20}]}>
+                <View style={[styles.container]}>
 
                     <FlatList
                         ListHeaderComponent={()=>{
                             return(
                                 <View>
-                                    <View style={{flexDirection: 'row'}}>
+                                    <View style={{flexDirection: 'row',justifyContent: 'space-around',paddingTop:WIDTH/3+30,alignItems: 'center'}}>
                                         <TouchableOpacity
                                             onPress={()=>{
-                                                // this._navDetail(this.props.contentData.zh[1])
+                                                this._navToCategory('React')
                                             }}
                                         >
-                                            <Image
-                                                resizeMode='contain'
-                                                style={{width: WIDTH/2,height:WIDTH/4}}
-                                                source={require('../../data/img/0.jpg')}/>
+                                            <View style={{alignItems:'center'}}>
+                                                <Image
+                                                    resizeMode='contain'
+                                                    style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
+                                                    source={require('../../data/img/r.png')}/>
+                                                <Text style={{fontSize:10}}>React</Text>
+                                            </View>
                                         </TouchableOpacity>
 
                                         <TouchableOpacity
                                             onPress={()=>{
-                                                // this._navDetail(this.props.contentData.zh[2])
+                                                this._navToCategory('React Native')
                                             }}
                                         >
-                                            <Image
-                                                resizeMode='contain'
-                                                style={{width: WIDTH/2,height:WIDTH/4}}
-                                                source={require('../../data/img/1.jpg')}/>
+                                            <View style={{alignItems:'center'}}>
+                                                <Image
+                                                    resizeMode='contain'
+                                                    style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
+                                                    source={require('../../data/img/rn.png')}/>
+                                                <Text style={{fontSize:10}}>React Native</Text>
+                                            </View>
+                                        </TouchableOpacity>
+
+                                        <TouchableOpacity
+                                            onPress={()=>{
+                                                this._navToCategory('JAVA')
+                                            }}
+                                        >
+                                            <View style={{alignItems:'center'}}>
+                                                <Image
+                                                    resizeMode='contain'
+                                                    style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
+                                                    source={require('../../data/img/java.png')}/>
+                                                <Text style={{fontSize:10}}>JAVA</Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                            onPress={()=>{
+                                                this._navToCategory('PHP')
+                                            }}
+                                        >
+                                            <View style={{alignItems:'center'}}>
+                                                <Image
+                                                    resizeMode='contain'
+                                                    style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
+                                                    source={require('../../data/img/db.png')}/>
+                                                <Text style={{fontSize:10}}>PHP</Text>
+                                            </View>
                                         </TouchableOpacity>
 
                                     </View>
