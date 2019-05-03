@@ -24,7 +24,7 @@ class Splash extends Component {
 
                 if(config.length!==0){
                     global.AppConfig = config;
-                    if(AppConfig.isLogin){
+                    if(AppConfig.loginData.isLogin){
                         this.navHome()
                     }else {
                         this.navLogin()

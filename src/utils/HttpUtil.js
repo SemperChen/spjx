@@ -114,8 +114,37 @@ export function fetchMyPoems(){
 
 export function fetchJSON(url,body) {
     return new Promise((resolve, reject) => {
+        this.timer = setTimeout(()=>{
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body)
+            })
+                .then((response) => {
+                    return response.json()
+                })
+                .catch((error) => {
+                    reject(error);
+                }).then((responseData) => {
+                if (!responseData) {
+                    reject(new Error('fetchBookmark:responseData is null'));
+                    return;
+                }
+                this.timer && clearTimeout(this.timer)
+                resolve(responseData);
+            }).done();
+        },2000)
+
+    })
+}
+
+export function fetchJSONByGET(url,body) {
+    return new Promise((resolve, reject) => {
         fetch(url, {
-            method: "POST",
+            method: "GET",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",

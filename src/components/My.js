@@ -44,7 +44,7 @@ export default class My extends Component {
                         <Card  style={{backgroundColor:'#eee',width:80,height:80,borderRadius:40,justifyContent: 'center',alignItems: 'center'}}>
                             <Icon name="person" fontSize={10} style={{color:inactiveTintColor}}/>
                         </Card>
-                        <Text>{AppConfig.user.username}</Text>
+                        <Text>{AppConfig.loginData.user.username}</Text>
                     </Card>
 
                     <TouchableOpacity
@@ -76,8 +76,8 @@ export default class My extends Component {
 
                     <TouchableOpacity
                         onPress={()=>{
-                            AppConfig.isLogin = false;
-                            AppConfig.user = null;
+                            AppConfig.loginData.isLogin = false;
+                            AppConfig.loginData.user = null;
                             saveAppConfig(AppConfig);
                             this._retNavLogin()
                         }}
