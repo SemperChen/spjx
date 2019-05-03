@@ -10,7 +10,7 @@ const _remove = require('lodash/remove');
 class Collect extends Component {
 
     componentDidMount() {
-        this.props.dispatch(requestContent());
+        this.props.dispatch(requestContent());//请求视频内容
     }
 
     /**
@@ -31,7 +31,8 @@ class Collect extends Component {
         _remove(AppConfig.collection,(item)=>{
             return item.id===id
         });
-        this.forceUpdate()
+
+        this.forceUpdate()//暴力更新
 
     }
 

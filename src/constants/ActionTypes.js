@@ -6,3 +6,7 @@ export const RECEIVE_MY = 'RECEIVE_MY';
 
 export const REQUEST_SPREAD = 'REQUEST_SPREAD';
 export const RECEIVE_SPREAD = 'RECEIVE_SPREAD';
+
+export const REQUEST_LOGIN = 'REQUEST_LOGIN';
+export const RECEIVE_LOGIN = 'RECEIVE_LOGIN';
+export const CLEAR_LOGIN = 'CLEAR_LOGIN';

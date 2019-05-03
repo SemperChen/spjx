@@ -25,7 +25,6 @@ class Login extends Component {
      * 导航到详请观看视频信息页面
      * @private
      */
-
     _navToHome = () => {
         const resetAction = StackActions.reset({
             index: 0,

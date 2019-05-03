@@ -105,20 +105,22 @@ export function fetchNetData() {
         ]
     }
 }
+
 export function fetchMyPoems(){
     return(
         globalMyPoems
     )
 }
 
-export function fetchJSON(url) {
+export function fetchJSON(url,body) {
     return new Promise((resolve, reject) => {
         fetch(url, {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'Accept-Charset': 'utf-8',
-                'User-Agent': 'Mozilla/5.0 (Linux; X11)',
-            }
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
         })
             .then((response) => {
                 return response.json()
@@ -127,7 +129,7 @@ export function fetchJSON(url) {
                 reject(error);
             }).then((responseData) => {
             if (!responseData) {
-                reject(new Error('fetchJSON:responseData is null'));
+                reject(new Error('fetchBookmark:responseData is null'));
                 return;
             }
             resolve(responseData);
