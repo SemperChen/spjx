@@ -32,3 +32,5 @@ export default function configureStore() {
         runSaga: sagaMiddleware.run
     };
 }
+
+//框架就这么配置

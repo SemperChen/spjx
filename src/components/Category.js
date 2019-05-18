@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {requestContent} from "../actions/content";
 import {FlatList, Image, StatusBar, StyleSheet, TouchableOpacity, View} from "react-native";
 import {WIDTH} from "./Home";
-import {videosUrl} from "../constants/api";
+import {baseUrl, videosUrl} from "../constants/api";
 
 class Category extends Component {
 
@@ -118,7 +118,7 @@ class Category extends Component {
                 <View style={{
 
                     alignItems: 'center'}}>
-                    <Image source={{uri: item.img}}
+                    <Image source={{uri: baseUrl+item.img}}
                            style={{width:WIDTH/10*3,height:WIDTH/10*2.2,borderRadius:8}}
                            resizeMode='stretch'
                     />

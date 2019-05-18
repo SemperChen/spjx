@@ -5,6 +5,7 @@ import {requestContent} from '../actions/content';
 import {activeTintColor} from "../constants/constants";
 import {WIDTH} from "./Home";
 import {Icon} from 'native-base';
+import {baseUrl} from "../constants/api";
 
 const _remove = require('lodash/remove');
 class Collect extends Component {
@@ -67,7 +68,7 @@ class Collect extends Component {
                     this._navDetail(item)
                 }}
             >
-                <Image source={{uri: item.img}}
+                <Image source={{uri: baseUrl+item.img}}
                        style={styles.img}
                        resizeMode='cover'
                 />

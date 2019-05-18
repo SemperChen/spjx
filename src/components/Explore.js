@@ -5,6 +5,7 @@ import {requestContent} from '../actions/content';
 import {activeTintColor} from "../constants/constants";
 import {WIDTH} from "./Home";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {baseUrl} from "../constants/api";
 
 class Explore extends Component {
 
@@ -78,7 +79,7 @@ class Explore extends Component {
                 <View style={{
 
                     alignItems: 'center'}}>
-                    <Image source={{uri: item.img}}
+                    <Image source={{uri: baseUrl+item.img}}
                            style={{width:WIDTH/10*3,height:WIDTH/10*2.2,borderRadius:8}}
                            resizeMode='stretch'
                     />

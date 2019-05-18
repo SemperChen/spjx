@@ -5,6 +5,7 @@ import StarRating from "react-native-star-rating";
 import {inactiveTintColor} from "../constants/constants";
 import {connect} from "react-redux";
 import {saveAppConfig} from "../utils/ConfigUtil";
+import {baseUrl} from "../constants/api";
 
 const _findIndex = require('lodash/findIndex');
 const _remove = require('lodash/remove');
@@ -68,7 +69,7 @@ class Detail extends Component {
                     <View style={{flex: 1}}>
                         <VideoPlayer
                             endWithThumbnail
-                            video={{uri: this.video.video}}
+                            video={{uri: baseUrl+this.video.video}}
                             // videoWidth={this.state.video.width}
                             // videoHeight={this.state.video.height}
                             // duration={this.state.video.duration}

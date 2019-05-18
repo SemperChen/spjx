@@ -13,7 +13,7 @@ import {
 import {connect} from 'react-redux';
 import {requestContent} from '../actions/content';
 import {activeTintColor} from "../constants/constants";
-import {videosUrl} from "../constants/api";
+import {baseUrl, videosUrl} from "../constants/api";
 import Carousel from "react-native-snap-carousel";
 import {fetchSpreadData} from "../utils/HttpUtil";
 
@@ -59,7 +59,7 @@ class Home extends Component {
                 style={{width: WIDTH, height: WIDTH / 3}}
                 underlayColor='#fff'
             >
-                <Image resizeMode='cover' source={item.img}
+                <Image resizeMode='cover' source={baseUrl+item.img}
                        style={{width: WIDTH, height: WIDTH / 3}}/>
             </TouchableHighlight>
         )
@@ -81,7 +81,7 @@ class Home extends Component {
                         renderItem={this._renderItemCarousel}
                         sliderWidth={WIDTH}
                         itemWidth={WIDTH}
-                    />
+                    /> /*轮播部分*/
                     <FlatList
                         ListHeaderComponent={()=>{
                             return(
@@ -105,7 +105,7 @@ class Home extends Component {
 
                                         <TouchableOpacity
                                             onPress={()=>{
-                                                this._navToCategory('React Native')
+                                                this._navToCategory('React-Native')
                                             }}
                                         >
                                             <View style={{alignItems:'center'}}>
