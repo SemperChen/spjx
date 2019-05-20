@@ -18,7 +18,6 @@ import Carousel from "react-native-snap-carousel";
 import {fetchSpreadData} from "../utils/HttpUtil";
 
 export const WIDTH = Dimensions.get('window').width;
-const _sortBy = require('lodash/sortBy')
 /***********************************************************************************************************************
  *书签排序
  */

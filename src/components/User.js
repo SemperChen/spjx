@@ -7,28 +7,31 @@ import {requestLogin} from "../actions/login";
 import {saveUserInfoUrl} from "../constants/api";
 import ToastUtil from "../utils/ToastUtil";
 import {activeTintColor} from "../constants/constants";
+import {saveAppConfig} from "../utils/ConfigUtil";
 
 class User extends Component {
 
     _saveUserInfo = () => {
+        let user = AppConfig.loginData.user;
         let body = {
-            username: this.username,
+            username: this.username?this.username:user.username,
             password: this.password,
-            phone: this.phone,
-            address: this.address,
-            email: this.email,
-            school: this.school
+            phone: this.phone?this.phone:user.phone,
+            address: this.address?this.address:user.address,
+            email: this.email?this.email:user.email,
+            school: this.school?this.school:user.school
         };
         this.props.dispatch(requestLogin(saveUserInfoUrl,body));
-        AppConfig.loginData.user = body
+        AppConfig.loginData.user = body;
+        saveAppConfig(AppConfig)
     };
 
     render() {
         let user = AppConfig.loginData.user;
-        if(this.props.loginData&&this.props.loginData.isSaved){
+       /* if(this.props.loginData&&this.props.loginData.isSaved){
             ToastUtil.showLong('保存成功！')
 
-        }
+        }*/
         return (
             <Container>
                 <Content>
@@ -80,10 +83,11 @@ class User extends Component {
                         <Button
                             style={{marginTop: 40}}
                             onPress={() => {
-                                if (this.username && this.password) {
+                                this.username = user.username;
+                                if (this.password) {
                                     this._saveUserInfo()
                                 } else {
-                                    ToastUtil.showLong('用户名或密码不能为空！')
+                                    ToastUtil.showLong('请输入密码！')
                                 }
                             }}
                             color={activeTintColor} rounded block>
