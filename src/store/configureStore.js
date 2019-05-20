@@ -15,6 +15,13 @@ middlewares.push(reactNavigationReduxMiddleware);
 /* global __DEV__  */
 if (__DEV__) {
     // middlewares.push(logger);
+    global.console = {
+        info: () => {},
+        log: () => {},
+        warn: () => {},
+        debug: () => {},
+        error: () => {},
+    };
 }else {
     global.console = {
         info: () => {},
