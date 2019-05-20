@@ -18,28 +18,7 @@ import Carousel from "react-native-snap-carousel";
 import {fetchSpreadData} from "../utils/HttpUtil";
 
 export const WIDTH = Dimensions.get('window').width;
-/***********************************************************************************************************************
- *书签排序
- */
-const sortBy = function (name) {
-    return function (o, p) {
-        let a, b;
-        if (typeof o === "object" && typeof p === "object" && o && p) {
-            a = o[name];
-            b = p[name];
-            if (a === b) {
-                return 0;
-            }
-            if (typeof a === typeof b) {
-                return a > b ? -1 : 1;
-            }
-            return typeof a > typeof b ? -1 : 1;
-        }
-        else {
-            throw ("BookmarkUtil sortBy error");
-        }
-    }
-};
+
 class Home extends Component {
 
     componentDidMount() {
@@ -87,12 +66,7 @@ class Home extends Component {
     };
 
     render() {
-        // console.log('contentData',this.props.contentData)
-        if(this.props.contentData){
-            this.props.contentData.sort(sortBy('viewersCount'))
-            // let contentData = sortBy('viewersCount')
-            // console.log('contentData',this.props.contentData.sort(sortBy('viewersCount')))
-        }
+
         return (
             <View>
                 <StatusBar
