@@ -185,7 +185,7 @@ export function fetchSpreadData() {
             id:100002,
             title: 'PHP7进阶到架构实战',
             author: 'edgar a. guest',
-            img:require('../../data/img/spread/img1.jpeg'),
+            img:'picture/ad02.png',
             intro: '本套AE入门视频教程特邀请了经验丰富的胡老师为大家授课，希望大家从中体验AE的魅力，掌握这一前沿的技术。 ' +
                 'After Effects简称AE,是Adobe公司推出的一款图形视频处理软件，适用于从事设计和视频特技的机构，' +
                 '包括电视台、动画制作公司、个人后期制作工作室以及多媒体工作室。目前是十分流行火爆的后期制作软件，许多电影特效，' +
@@ -198,7 +198,7 @@ export function fetchSpreadData() {
             id:100003,
             title: 'PHP7进阶到架构实战',
             author: 'edgar a. guest',
-            img:require('../../data/img/spread/img2.jpeg'),
+            img:'picture/ad03.png',
             intro: '本套AE入门视频教程特邀请了经验丰富的胡老师为大家授课，希望大家从中体验AE的魅力，掌握这一前沿的技术。 ' +
                 'After Effects简称AE,是Adobe公司推出的一款图形视频处理软件，适用于从事设计和视频特技的机构，' +
                 '包括电视台、动画制作公司、个人后期制作工作室以及多媒体工作室。目前是十分流行火爆的后期制作软件，许多电影特效，' +

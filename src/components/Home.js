@@ -59,13 +59,14 @@ class Home extends Component {
                 style={{width: WIDTH, height: WIDTH / 3}}
                 underlayColor='#fff'
             >
-                <Image resizeMode='cover' source={baseUrl+item.img}
+                <Image resizeMode='cover' source={{uri:baseUrl+item.img}}
                        style={{width: WIDTH, height: WIDTH / 3}}/>
             </TouchableHighlight>
         )
     };
 
     render() {
+        console.log('contentData',this.props.contentData)
         return (
             <View>
                 <StatusBar
@@ -81,7 +82,7 @@ class Home extends Component {
                         renderItem={this._renderItemCarousel}
                         sliderWidth={WIDTH}
                         itemWidth={WIDTH}
-                    /> /*轮播部分*/
+                    />
                     <FlatList
                         ListHeaderComponent={()=>{
                             return(
@@ -178,7 +179,7 @@ class Home extends Component {
                     this._navDetail(item)
                 }}
             >
-                <Image source={{uri: item.img}}
+                <Image source={{uri: baseUrl+item.img}}
                        style={styles.img}
                        resizeMode='cover'
                 />

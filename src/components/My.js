@@ -35,17 +35,25 @@ export default class My extends Component {
         this.props.navigation.navigate('Collect')
     };
 
+    _navToUser = () =>{
+        this.props.navigation.navigate('User')
+    };
+
 
     render() {
         return (
             <Container style={{backgroundColor:'#fafafa'}}>
                 <Content>
-                    <Card style={{width:WIDTH,height:WIDTH/2,justifyContent: 'center',alignItems: 'center'}}>
+                    <TouchableOpacity
+                        onPress={()=>{
+                            this._navToUser()
+                        }}
+                        style={{width:WIDTH,height:WIDTH/2,justifyContent: 'center',alignItems: 'center'}}>
                         <Card  style={{backgroundColor:'#eee',width:80,height:80,borderRadius:40,justifyContent: 'center',alignItems: 'center'}}>
                             <Icon name="person" fontSize={10} style={{color:inactiveTintColor}}/>
                         </Card>
                         <Text>{AppConfig.loginData.user.username}</Text>
-                    </Card>
+                    </TouchableOpacity>
 
                     <TouchableOpacity
                         onPress={()=>{
