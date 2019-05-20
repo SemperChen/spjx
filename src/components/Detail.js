@@ -5,7 +5,9 @@ import StarRating from "react-native-star-rating";
 import {inactiveTintColor} from "../constants/constants";
 import {connect} from "react-redux";
 import {saveAppConfig} from "../utils/ConfigUtil";
-import {baseUrl} from "../constants/api";
+import {baseUrl, saveViewersCountUrl, videosUrl} from "../constants/api";
+import {requestViewersCount} from "../actions/saveViewersCount";
+import {requestContent} from "../actions/content";
 
 const _findIndex = require('lodash/findIndex');
 const _remove = require('lodash/remove');
@@ -38,6 +40,8 @@ class Detail extends Component {
     }
 
     componentDidMount() {
+        this.props.dispatch(requestViewersCount(saveViewersCountUrl,{id:this.video.id}));
+        this.props.dispatch(requestContent(videosUrl));
     }
 
     //收藏和移除收藏视频开关，点一次搜藏再点一次取消收藏
@@ -102,7 +106,7 @@ class Detail extends Component {
                                         // selectedStar={(rating) => this.onStarRatingPress(rating)}
                                     />
 
-                                    <Text style={{fontSize: 12, marginLeft: 5}}>{this.video.score}分 {this.video.viewersCount}人学过</Text>
+                                    <Text style={{fontSize: 12, marginLeft: 5}}>{this.video.score}分 {this.video.viewersCount}次观看</Text>
 
                                 </View>
                                 <View style={{flexDirection: 'row'}}>
