@@ -20,7 +20,7 @@ if (__DEV__) {
         log: () => {},
         warn: () => {},
         debug: () => {},
-        error: () => {},
+        error: () => {}
     };
 }else {
     global.console = {
@@ -28,7 +28,7 @@ if (__DEV__) {
         log: () => {},
         warn: () => {},
         debug: () => {},
-        error: () => {},
+        error: () => {}
     };
 }
 
