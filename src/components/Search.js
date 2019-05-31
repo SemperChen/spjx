@@ -39,7 +39,7 @@ class Search extends Component {
                 let video = videos[i];
                 let index =  -1;
                 if((this.searchName&&this.searchName!=='')){
-                    index =  video.title.indexOf(this.searchName);
+                    index =  video.title.indexOf(this.searchName);//this.searchName=‘’
                 }
                 if(index!==-1){
                     this.videos.push(video)
