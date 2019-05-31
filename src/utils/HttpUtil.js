@@ -116,7 +116,6 @@ export function fetchMyPoems(){
 }
 
 export function fetchJSON(url,body) {
-    console.log('body',body)
     return new Promise((resolve, reject) => {
         this.timer = setTimeout(()=>{
             fetch(url, {

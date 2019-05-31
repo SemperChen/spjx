@@ -86,6 +86,7 @@ export default class My extends Component {
                         onPress={()=>{
                             AppConfig.loginData.isLogin = false;
                             AppConfig.loginData.user = null;
+                            AppConfig.collection = [];
                             saveAppConfig(AppConfig);
                             this._retNavLogin()
                         }}

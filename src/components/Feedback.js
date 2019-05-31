@@ -1,16 +1,24 @@
-import React, { Component } from "react";
-import {Container, Header, Content, Textarea, Form, Text, Button, Card, Icon} from "native-base";
-import ToastUtil from "../utils/ToastUtil";
+import React, {Component} from "react";
+import {Button, Card, Container, Content, Form, Icon, Text, Textarea} from "native-base";
 import {activeTintColor, inactiveTintColor} from "../constants/constants";
-import {View,TouchableOpacity} from 'react-native';
+import {View} from 'react-native';
 import {WIDTH} from "./Home";
-export default class Feedback extends Component {
+import {connect} from "react-redux";
+import {requestFeedback} from "../actions/feedback";
+import {feedbackUrl} from "../constants/api";
+
+class Feedback extends Component {
     constructor(props){
         super(props);
         this.state={
             isSuccess:false
         }
     }
+
+    commitFeedback = () => {
+        this.props.dispatch(requestFeedback(feedbackUrl))
+    }
+
     render() {
         return (
             <Container>
@@ -33,8 +41,8 @@ export default class Feedback extends Component {
                                 </Form>
                             </Content>
                             <Button
-                                style={{}}
                                 onPress={()=>{
+                                    this.commitFeedback();
                                     this.setState((prevState)=>({
                                         isSuccess:!prevState.isSuccess
                                     }))
@@ -49,3 +57,5 @@ export default class Feedback extends Component {
         );
     }
 }
+
+export default connect()(Feedback)
