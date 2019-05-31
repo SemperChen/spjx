@@ -131,9 +131,7 @@ class Login extends Component {
 
                     <Item
                         onPress={() => {
-                            this.setState((prevState) => ({
-                                isReadyLogin: !prevState.isReadyLogin
-                            }))
+                            this.setState({isReadyLogin:!this.state.isReadyLogin})
                         }}
                         style={{justifyContent: 'center', alignItems: 'center', borderColor: '#fff', padding: 20}}>
 

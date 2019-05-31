@@ -120,20 +120,7 @@ class Home extends Component {
 
                                         <TouchableOpacity
                                             onPress={()=>{
-                                                this._navToCategory('JAVA')
-                                            }}
-                                        >
-                                            <View style={{alignItems:'center'}}>
-                                                <Image
-                                                    resizeMode='contain'
-                                                    style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
-                                                    source={require('../../data/img/java.png')}/>
-                                                <Text style={{fontSize:10}}>JAVA</Text>
-                                            </View>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity
-                                            onPress={()=>{
-                                                this._navToCategory('PHP')
+                                                this._navToCategory('JavaScript')
                                             }}
                                         >
                                             <View style={{alignItems:'center'}}>
@@ -141,7 +128,7 @@ class Home extends Component {
                                                     resizeMode='contain'
                                                     style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
                                                     source={require('../../data/img/db.png')}/>
-                                                <Text style={{fontSize:10}}>PHP</Text>
+                                                <Text style={{fontSize:10}}>JavaScript</Text>
                                             </View>
                                         </TouchableOpacity>
 

@@ -23,7 +23,7 @@ export default function login(state = initialState, action) {
         case CLEAR_LOGIN:
             return {
                 ...state,
-                loginData: undefined,
+                loginData: null,
                 isFetching: false
             };
         default:

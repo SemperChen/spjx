@@ -94,19 +94,8 @@ class Detail extends Component {
                                 marginTop: 8
                             }}>
                                 <View style={{flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
-                                    <StarRating
-                                        containerStyle={{
-                                            justifyContent: 'flex-start'
-                                        }}
-                                        starStyle={{margin: 2, color: inactiveTintColor}}
-                                        starSize={10}
-                                        disabled={false}
-                                        maxStars={5}
-                                        rating={this.video.score}
-                                        // selectedStar={(rating) => this.onStarRatingPress(rating)}
-                                    />
 
-                                    <Text style={{fontSize: 12, marginLeft: 5}}>{this.video.score}分 {this.video.viewersCount}次观看</Text>
+                                    <Text style={{fontSize: 12, marginLeft: 5}}>{this.video.viewersCount}次观看</Text>
 
                                 </View>
                                 <View style={{flexDirection: 'row'}}>
@@ -118,7 +107,7 @@ class Detail extends Component {
                                         borderWidth: StyleSheet.hairlineWidth,
                                         borderColor: inactiveTintColor,
                                         color: inactiveTintColor
-                                    }}>独家</Text>
+                                    }}>热门</Text>
                                     <Text style={{
                                         fontSize: 10,
                                         borderRadius: 5,
@@ -127,7 +116,7 @@ class Detail extends Component {
                                         borderWidth: StyleSheet.hairlineWidth,
                                         borderColor: inactiveTintColor,
                                         color: inactiveTintColor
-                                    }}>连载</Text>
+                                    }}>更新</Text>
                                 </View>
                             </View>
 
