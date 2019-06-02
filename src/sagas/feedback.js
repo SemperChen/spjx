@@ -4,8 +4,8 @@ import {receiveFeedback} from "../actions/feedback";
 
 export function* fetchFeedback(params) {
     try {
-        const {feedbackUrl} = params;
-        let feedbackData = yield call(fetchJSON, feedbackUrl);
+        const {feedbackUrl,body} = params;
+        let feedbackData = yield call(fetchJSON, feedbackUrl,body);
         yield put(receiveFeedback(feedbackData))
 
     } catch (e) {

@@ -3,10 +3,11 @@
  */
 import {RECEIVE_CONTENT, RECEIVE_FEEDBACK, REQUEST_CONTENT, REQUEST_FEEDBACK} from "../constants/ActionTypes";
 
-export function requestFeedback(feedbackUrl) {
+export function requestFeedback(feedbackUrl,body) {
     return {
         type: REQUEST_FEEDBACK,
-        feedbackUrl
+        feedbackUrl,
+        body
     };
 }
 

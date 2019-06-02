@@ -86,6 +86,7 @@ class User extends Component {
                                 this.username = user.username;
                                 if (this.password) {
                                     this._saveUserInfo()
+                                    ToastUtil.showLong('保存成功！')
                                 } else {
                                     ToastUtil.showLong('请输入密码！')
                                 }

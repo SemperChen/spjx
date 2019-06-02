@@ -1,5 +1,5 @@
 /**
- * @author Semper
+ * @author
  */
 import {RECEIVE_CONTENT, REQUEST_CONTENT} from "../constants/ActionTypes";
 

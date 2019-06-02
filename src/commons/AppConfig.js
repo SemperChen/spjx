@@ -7,3 +7,4 @@ global.AppConfig = {
     },
     collection:[]
 }
+//保存到手机

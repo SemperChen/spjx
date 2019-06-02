@@ -1,5 +1,5 @@
 /**
- * @author Semper
+ * @author
  */
 import {CLEAR_LOGIN, RECEIVE_LOGIN, REQUEST_LOGIN} from "../constants/ActionTypes";
 

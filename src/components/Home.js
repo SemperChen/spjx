@@ -86,9 +86,9 @@ class Home extends Component {
                     <FlatList
                         ListHeaderComponent={()=>{
                             return(
-                                <View>
+                                <View style={{width:WIDTH}}>
 
-                                    <View style={{flexDirection: 'row',justifyContent: 'space-around',alignItems: 'center'}}>
+                                    <View style={{width:WIDTH,flexDirection: 'row',justifyContent: 'space-around',alignItems: 'center'}}>
 
                                         <TouchableOpacity
                                             onPress={()=>{
@@ -114,13 +114,27 @@ class Home extends Component {
                                                     resizeMode='contain'
                                                     style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
                                                     source={require('../../data/img/rn.png')}/>
-                                                <Text style={{fontSize:10}}>React Native</Text>
+                                                <Text style={{fontSize:10}}>React-Native</Text>
                                             </View>
                                         </TouchableOpacity>
 
                                         <TouchableOpacity
+                                        onPress={()=>{
+                                            this._navToCategory('Java')
+                                        }}
+                                    >
+                                        <View style={{alignItems:'center'}}>
+                                            <Image
+                                                resizeMode='contain'
+                                                style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
+                                                source={require('../../data/img/java.png')}/>
+                                            <Text style={{fontSize:10}}>Java</Text>
+                                        </View>
+                                    </TouchableOpacity>
+
+                                        <TouchableOpacity
                                             onPress={()=>{
-                                                this._navToCategory('JavaScript')
+                                                this._navToCategory('JS')
                                             }}
                                         >
                                             <View style={{alignItems:'center'}}>
@@ -128,18 +142,19 @@ class Home extends Component {
                                                     resizeMode='contain'
                                                     style={{width: WIDTH/8,height:WIDTH/8,marginVertical: 5}}
                                                     source={require('../../data/img/db.png')}/>
-                                                <Text style={{fontSize:10}}>JavaScript</Text>
+                                                <Text style={{fontSize:10}}>JS</Text>
                                             </View>
                                         </TouchableOpacity>
 
+
                                     </View>
-                                    <Text style={{marginTop:2,backgroundColor:'#fff',marginLeft: 15,fontSize:16,paddingVertical: 10,fontWeight: 'bold'}}>精选推荐</Text>
+                                    <Text style={{marginTop:2,backgroundColor:'#fff',paddingLeft: 15,fontSize:16,paddingVertical: 10,fontWeight: 'bold'}}>精选推荐</Text>
                                 </View>
 
 
                             )
                         }}
-                        contentContainerStyle={{alignSelf: 'center',paddingBottom: WIDTH / 3 * 2}}
+                        contentContainerStyle={{alignItems: 'center',paddingBottom: WIDTH / 3 * 2,justifyContent:'center'}}
                         numColumns={2}
                         showsVerticalScrollIndicator={false}
                         data={this.props.contentData}

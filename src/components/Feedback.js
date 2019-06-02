@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Card, Container, Content, Form, Icon, Text, Textarea} from "native-base";
+import {Button, Card, Container, Content, Form, Icon, Input, Text, Textarea} from "native-base";
 import {activeTintColor, inactiveTintColor} from "../constants/constants";
 import {View} from 'react-native';
 import {WIDTH} from "./Home";
@@ -16,7 +16,8 @@ class Feedback extends Component {
     }
 
     commitFeedback = () => {
-        this.props.dispatch(requestFeedback(feedbackUrl))
+        let body = {message:this.feedback,userid:AppConfig.loginData.user.id}
+        this.props.dispatch(requestFeedback(feedbackUrl,body))
     }
 
     render() {
@@ -37,7 +38,9 @@ class Feedback extends Component {
                         <View style={{flex:1}}>
                             <Content padder>
                                 <Form>
-                                    <Textarea rowSpan={5} bordered placeholder="输入内容" />
+                                    <Textarea
+                                        onChangeText={(feedback) => this.feedback = feedback}
+                                        rowSpan={5} bordered placeholder="输入内容" />
                                 </Form>
                             </Content>
                             <Button

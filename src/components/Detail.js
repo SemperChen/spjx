@@ -107,7 +107,7 @@ class Detail extends Component {
                                         borderWidth: StyleSheet.hairlineWidth,
                                         borderColor: inactiveTintColor,
                                         color: inactiveTintColor
-                                    }}>热门</Text>
+                                    }}>精选</Text>
                                     <Text style={{
                                         fontSize: 10,
                                         borderRadius: 5,
@@ -116,7 +116,7 @@ class Detail extends Component {
                                         borderWidth: StyleSheet.hairlineWidth,
                                         borderColor: inactiveTintColor,
                                         color: inactiveTintColor
-                                    }}>更新</Text>
+                                    }}>课程</Text>
                                 </View>
                             </View>
 
