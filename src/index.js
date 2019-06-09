@@ -6,11 +6,9 @@ import rootSaga from "./sagas/index";
 import {Root as Rt} from "native-base";
 const store = configureStore();
 store.runSaga(rootSaga);
-import { YellowBox } from 'react-native';
-YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
-global.globalMyPoems=[];
+//配置store
 
-import './commons/AppConfig';//全局变量配置
+import './commons/AppConfig';//配置全局变量
 export default class Root extends Component {
 
     render() {

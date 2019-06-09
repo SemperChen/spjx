@@ -10,8 +10,6 @@ import {clearLogin, requestLogin} from "../actions/login";
 import {loginUrl, registerUrl} from "../constants/api";
 import {saveAppConfig} from "../utils/ConfigUtil";
 
-const _findIndex = require('lodash/findIndex');
-
 class Login extends Component {
     constructor(props) {
         super(props);

@@ -1,4 +1,4 @@
-export const baseUrl = 'http://10.2.32.150:8080/';
+export const baseUrl = 'http://10.2.33.92:8080/';
 export const loginUrl = baseUrl+'login';
 export const registerUrl = baseUrl+'register';
 export const saveUserInfoUrl = baseUrl+'save';

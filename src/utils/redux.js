@@ -10,4 +10,4 @@ const reactNavigationReduxMiddleware = createReactNavigationReduxMiddleware(
 const navigationPropConstructor = createNavigationPropConstructor('root');
 
 export { reactNavigationReduxMiddleware, navigationPropConstructor };
-//封装好的框架
+//框架封装方法 千万千万别改！

@@ -1,6 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
-// import StackViewStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
+
 import {Animated, Easing, TouchableOpacity} from 'react-native';
 import Home from '../components/Home';
 import Splash from '../components/Splash';
@@ -20,6 +20,8 @@ import User from "../components/User";
 /**
  * 首页Tab
  */
+
+//BottomTabNavigator作为根控制器控制四个StackNavigator
 const TabContainer = createBottomTabNavigator(
     {
         Home: {
@@ -57,9 +59,9 @@ const TabContainer = createBottomTabNavigator(
         }
     },
     {
-        animationEnabled: false,
-        swipeEnabled: false,
-        lazy: true,
+        animationEnabled: false, //没有动画
+        swipeEnabled: false, // 禁止滑动
+        lazy: true, //只加载当前界面 提高性能
         tabBarPosition: 'bottom',
         tabBarOptions: {
             activeTintColor: activeTintColor,
@@ -131,41 +133,9 @@ const AppNavigator = createStackNavigator({
         },
     },
     cardStyle: {
-        // backgroundColor: '#F5FCFF',
         backgroundColor: '#fafafa',
     },
-    /*transitionConfig: () => ({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-        transitionSpec: {
-            duration: 360,
-            easing: Easing.inOut(Easing.ease),
-            timing: Animated.timing,
-        },
-    }),*/
-    /*transitionConfig: () => ({
-        transitionSpec: {
-            duration: 300,
-            easing: Easing.out(Easing.poly(4)),
-            timing: Animated.timing,
-        },
-        screenInterpolator: sceneProps => {
-            const { layout, position, scene } = sceneProps;
-            const { index } = scene;
 
-            const height = layout.initHeight;
-            const translateY = position.interpolate({
-                inputRange: [index - 1, index, index + 1],
-                outputRange: [height, 0, 0],
-            });
-
-            const opacity = position.interpolate({
-                inputRange: [index - 1, index - 0.99, index],
-                outputRange: [0, 1, 1],
-            });
-
-            return { opacity, transform: [{ translateY }] };
-        },
-    }),*/
     transitionConfig: () => ({
         transitionSpec: {
             duration: 300,

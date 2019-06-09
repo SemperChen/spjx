@@ -23,12 +23,13 @@ class Detail extends Component {
 
     //导航到PDF阅读器
     _navReader = () => {
-        this.props.navigation.navigate('Reader')
+        this.props.navigation.navigate('Reader',{pdf:this.video.pdf})
     };
 
     componentWillMount(){
         const {video} = this.props.navigation.state.params;
         this.video = video;
+
         const index = _findIndex(AppConfig.collection, (item)=>{
             return item.id === this.video.id
         });

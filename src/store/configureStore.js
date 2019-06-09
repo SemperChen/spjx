@@ -4,10 +4,10 @@ import createSagaMiddleware from 'redux-saga';
 import AppReducer from '../reducers/index';
 import {reactNavigationReduxMiddleware} from '../utils/redux';
 
-const middlewares = [];
+const middlewares = []; //中间件列表
 const {logger} = require('redux-logger');
 
-// configuring saga middleware
+
 const sagaMiddleware = createSagaMiddleware();
 
 middlewares.push(sagaMiddleware);
